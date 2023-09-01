@@ -1,0 +1,245 @@
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <app-navbar></app-navbar> -->
+
+<div class="">
+
+  <div class="card text-bg-dark">
+    <img
+      src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/pages/SellCar/assets/sell_landing_back_desktop.jpg"
+      class="card-img backimg" alt="...">
+    <div class="card-img-overlay">
+
+      <img
+        src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/pages/SellCar/assets/sell_right.svg?w=800&dpr=1.0"
+        class="w-100 mx-auto mt-5  " alt="" srcset="" style="height: 70px;">
+      <h1 class="card-title text-center">Sell your car&nbsp;easily&nbsp;</h1>
+      <ul class="d-flex justify-content-center gap-5 fs-5 text-decoration-none list-unstyled italic">
+        <li> Instant online Quote</li>
+        <li>Free Doorstep Evaluation</li>
+        <li>Same Day Payment</li>
+      </ul>
+
+      <div class="container">
+
+        <div class="">
+          <form [formGroup]="sellform">
+
+            <div class="d-lg-flex d-grid  gap-2" *ngIf="!bool">
+              <!-- carbrand -->
+              <div class="w-100 ">
+                <label for="floatingSelect" class="spncol">Select Brand</label>
+                <select class="form-select w-100 p-3  form-floating" id="floatingSelect" aria-label="Default select example" formControlName="Carbrand"
+                  (change)="cng($event)">
+                  <option selected>car brand</option>
+                  <option *ngFor="let item of arr">{{item.value}}</option>
+                </select>
+                <div *ngIf="carb && carb.invalid && carb.touched">
+                  <div *ngIf="carb.errors?.['required']">
+                    <small class="text">Field is Required</small>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- carmodel -->
+
+
+              <div class="w-100">
+                <label for="floatingSelect" class="spncol">Select Model</label>
+
+                <select class="form-select  w-100 p-3" formControlName="Carmodel" aria-label="Default select example">
+                  <option selected>Model</option>
+                  <ng-container *ngFor="let item of model">
+
+
+                    <option *ngFor="let items of item.models">{{items.value}}</option>
+                  </ng-container>
+
+
+                </select>
+                <div *ngIf="carm && carm.invalid && carm.touched">
+                  <div *ngIf="carm.errors?.['required']">
+                    <small class="text">Field is Required</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- seats -->
+              <div class="w-100">
+
+                <label for="floatingSelect" class="spncol">Select Seats</label>
+
+                <select class="form-select w-100 p-3" formControlName="Seats" aria-label="Default select example">
+                  <option selected>Seats</option>
+
+                  <option *ngFor="let item of objarray?.seats" value="{{item.objId}}">{{item.name}}</option>
+                  <!-- <option value="5">6 seater</option> -->
+
+                </select>
+                <div *ngIf="seats && seats.invalid && seats.touched">
+                  <div *ngIf="seats.errors?.['required']">
+                    <small class="text">Field is Required</small>
+                  </div>
+                </div>
+              </div>
+              <!-- Fueltype -->
+              <div class="w-100">
+
+                <label for="floatingSelect" class="spncol">Select Fuel Type</label>
+
+                <select class="form-select w-100 p-3" formControlName="Fueltype" aria-label="Default select example">
+                  <option selected>fuel</option>
+                  <option *ngFor="let item of objarray?.petrol" value="{{item.objId}}">{{item.name}}</option>
+                  <!-- <option value="2">diesel</option> -->
+
+                </select>
+                <div *ngIf="Fuel && Fuel.invalid && Fuel.touched">
+                  <div *ngIf="Fuel.errors?.['required']">
+                    <small class="text">Field is Required</small>
+                  </div>
+                </div>
+              </div>
+              <!-- owner -->
+              <div class="w-100">
+
+                <label for="floatingSelect" class="spncol">Owner</label>
+
+                <select class="form-select w-100 p-3" formControlName="Owner" aria-label="Default select example">
+                  <option selected>Owner</option>
+                  <option *ngFor="let item of objarray?.owner" value="{{item.objId}}">{{item.name}}</option>
+                  <!-- <option value="4">Two</option> -->
+
+                </select>
+                <div *ngIf="owner && owner.invalid && owner.touched">
+                  <div *ngIf="owner.errors?.['required']">
+                    <small class="text">Field is Required</small>
+                  </div>
+                </div>
+              </div>
+              <!-- kmdriven -->
+              <div class="w-100">
+
+                <label for="floatingSelect" class="spncol">Select Km Driven</label>
+
+                <select class="form-select w-100 p-3" formControlName="Kmdriven" aria-label="Default select example">
+                  <option>KM Driven</option>
+                  <option *ngFor="let item of objarray?.km" value="{{item.name}}">{{item.name}}</option>
+                  <!-- <option>10000</option>
+                  <option>15000</option> -->
+                </select>
+                <div *ngIf="km && km.invalid && km.touched">
+                  <div *ngIf="km.errors?.['required']">
+                    <small class="text">Field is Required</small>
+                  </div>
+                </div>
+              </div>
+              <!-- cartype -->
+              <div class="w-100">
+                <label for="floatingSelect" class="spncol">Select Car Type</label>
+
+                <select class="form-select w-100 p-3" formControlName="Cartype" aria-label="Default select example">
+                  <option selected>car type</option>
+                  <option>Suv</option>
+                  <option>Sedan</option>
+                </select>
+                <div *ngIf="cartype && cartype.invalid && cartype.touched">
+                  <div *ngIf="cartype.errors?.['required']">
+                    <small class="text">Field is Required</small>
+                  </div>
+                </div>
+              </div>
+              <div class="w-100">
+                <label for="floatingSelect" class="spncol invisible">button</label>
+
+                <button class="btn btn-danger   " (click)="prceed()">Proceed Further</button>
+              </div>
+            </div>
+            <!-- Error Messages -->
+
+            <div class="" *ngIf="bool">
+              <!-- price -->
+              <label for="" class="form-label">price</label>
+              <input type="text" formControlName="Price" class="form-control">
+              <div *ngIf="price && price.invalid && price.touched">
+                <div *ngIf="price.errors?.['required']">
+                  <small class="text">Field is Required</small>
+                </div>
+                <div *ngIf="price.errors?.['pattern']">
+                  <small class="text">Out of Range</small>
+                </div>
+              </div>
+              <!-- modelyear -->
+              <label for="" class="form-label">Model year</label>
+              <input type="date" formControlName="Modelyear" class="form-control" [max]="currentDate">
+              <div *ngIf="modelyear && modelyear.invalid && modelyear.touched">
+                <div *ngIf="modelyear.errors?.['required']">
+                  <small class="text">Field is Required</small>
+                </div>
+                <div *ngIf="modelyear.errors?.['gte']">
+                  <small class="text">Please enter a date not greater than today.</small>
+                </div>
+              </div>
+              <!-- city -->
+              <label for="" class="form-label" class="spncol">Select City</label>
+              <select class="form-select" formControlName="Cityid" aria-label="Default select example">
+                <option selected>city</option>
+                <option *ngFor="let item of objarray.city" value="{{item.cityid}}">{{item.cityname}}</option>
+                <!-- <option value="2">Gurgaon</option> -->
+              </select>
+              <div *ngIf="cityid && cityid.invalid && cityid.touched">
+                <div *ngIf="cityid.errors?.['required']">
+                  <small class="text">Field is Required</small>
+                </div>
+              </div>
+              <!-- frontview -->
+              <label class="form-label" for="customFile">Front View</label>
+              <input type="file" formControlName="Frontview" (change)="onfront($event)" class="form-control"
+                id="customFile" />
+              <div *ngIf="fview && fview.invalid && fview.touched">
+                <div *ngIf="fview.errors?.['required']">
+                  <small class="text">Field is Required</small>
+                </div>
+              </div>
+              <!-- backview -->
+              <label class="form-label" for="customFile">Back View</label>
+              <input type="file" formControlName="Backview" (change)="onback($event)" class="form-control"
+                id="customFile" />
+              <div *ngIf="bview && bview.invalid && bview.touched">
+                <div *ngIf="bview.errors?.['required']">
+                  <small class="text">Field is Required</small>
+                </div>
+              </div>
+
+              <!-- Leftview -->
+              <label class="form-label" for="customFile">Left View</label>
+              <input type="file" formControlName="Leftside" (change)="onleft($event)" class="form-control"
+                id="customFile" />
+              <div *ngIf="lview && lview.invalid && lview.touched">
+                <div *ngIf="lview.errors?.['required']">
+                  <small class="text">Field is Required</small>
+                </div>
+              </div>
+              <!-- rightview -->
+              <label class="form-label" for="customFile">Right View</label>
+              <input type="file" formControlName="Rightside" (change)="onright($event)" class="form-control"
+                id="customFile" />
+              <div *ngIf="rview && rview.invalid && rview.touched">
+                <div *ngIf="rview.errors?.['required']">
+                  <small class="text">Field is Required</small>
+                </div>
+              </div>
+              <div class="mt-2 d-flex  gap-2">
+                <button class="btn btn-danger" (click)="prceed()">Go back</button>
+                <button class="btn btn-primary" [disabled]="!sellform.valid" (click)="sell()">Sell Car</button>
+              </div>
+            </div>
+
+          </form>
+          <!-- {{sellform.value|json}} -->
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

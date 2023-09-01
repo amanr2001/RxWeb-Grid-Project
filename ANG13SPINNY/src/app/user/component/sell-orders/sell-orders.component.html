@@ -1,0 +1,114 @@
+<!-- <p>sell-orders works!</p> -->
+
+
+<div class="container" *ngIf="sellorder">
+  <h3 class="spn-col ms-3">Sell Requests</h3>
+
+  <div *ngFor="let item of sellorder |paginate:{itemsPerPage:2,currentPage:p}" class="m-3">
+    <small class="text-muted">{{dateformat(item.date)}}</small>
+
+    <div class="card text-center">
+      <div class="d-flex flex-wrap justify-content-between p-3">
+        <div>
+
+          <span class="idlabel ms-2 rounded my-light-text">
+            #{{item.carid}}
+          </span>
+          <span [ngClass]="{'onhold':item.stat.name=='OnHold','Accepted':item.stat.name=='Accepted','denied':item.stat.name=='Denied'}" class="rounded mx-2 px-2 text-white py-1">
+            {{item.stat.name}}
+          </span>
+
+        </div>
+        <div>
+          <a type="button" class="viewdetails my-light-text" [ngClass]="{'cantview':item.stat.name=='OnHold','canview':item.stat.name=='Accepted','canttview':item.stat.name=='Denied'}"  [routerLink]="['/cars',item.carid]">View Details <span><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" version="1.1">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="State-5.1-Evaluation-Two---Book-CTA-(Collapsed-Inspection-1)"
+                    transform="translate(-319.000000, -103.000000)">
+                    <g id="chevron_right-24px-copy"
+                      transform="translate(331.000000, 115.000000) rotate(90.000000) translate(-331.000000, -115.000000) translate(319.000000, 103.000000)">
+                      <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                      <path
+                        d="M9.29,6.71 C8.9,7.1 8.9,7.73 9.29,8.12 L13.17,12 L9.29,15.88 C8.9,16.27 8.9,16.9 9.29,17.29 C9.68,17.68 10.31,17.68 10.7,17.29 L15.29,12.7 C15.68,12.31 15.68,11.68 15.29,11.29 L10.7,6.7 C10.32,6.32 9.68,6.32 9.29,6.71 Z"
+                        id="Path" fill="#2e054e" fill-rule="nonzero"></path>
+                    </g>
+                  </g>
+                </g>
+              </svg></span></a>
+        </div>
+      </div>
+      <!--  -->
+      <div class="card-body p-3 text-start">
+        <p style="color: #2e054e;" class="my-bold-text ">{{item.carbrand}} {{item.carmodel}}</p>
+
+        <hr>
+      </div>
+      <!--  -->
+      <div>
+
+        <div class="card-body px-3 py-1 px-md-1 py-md-1 d-flex flex-wrap m-0 m-md-3 justify-content-between ">
+          <div>
+            <small class="text-muted text-body-secondary">Asked Price</small>
+
+            <p class="card-text fw-bold" style="color: #2e054e;"><span> </span>₹ {{item.price}}</p>
+          </div>
+          <div>
+
+            <a class="btn btn-danger px-5 py-2 " data-bs-toggle="modal" data-bs-target="#exampleModal" [ngClass]="{'can':item.stat.name=='Accepted'}"
+              (click)="cancelreq(item.carid)">Cancel Request</a>
+          </div>
+        </div>
+        <div class="text-start px-3  text-body-secondary">
+          <small class="">The executive was unable to reach you. <span role="button" class="text-danger">Please call
+              back on 727-727-7275.</span>at your convenience.</small>
+
+          <hr>
+        </div>
+
+
+      </div>
+      <!--  -->
+      <div class="text-start px-3 pb-2 py-0 text-body-secondary">
+        <small class="">Schedule a free doorstep evaluation to get the exact price of your car.</small>
+
+
+      </div>
+    </div>
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Request</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure You want to Delete the request?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="cancel()">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>
+</div>
+<div class="container">
+
+  <div *ngIf="sellorder === undefined || sellorder.length == 0" class="text-center w-25 m-auto ">
+    
+    <div  >
+      
+      <img src="https://img.icons8.com/?size=512&id=p1yIKD1Sjsp1&format=png" class="w-75 m-auto  " alt="error">
+    </div>
+    <p class="fs-5 mt-5">Nothing to Show</p>
+  </div>
+</div>

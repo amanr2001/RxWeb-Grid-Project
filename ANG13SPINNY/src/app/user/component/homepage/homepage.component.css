@@ -1,0 +1,97 @@
+/*
+.car-img{
+  height: 500px !important;
+  width: 75% !important;
+  margin: auto;
+}
+
+#carouselExampleInterval{
+  background-color: purple;
+} */
+
+/* .card-img{
+  background-size:cover;
+  opacity: 50%;
+
+}
+
+.card-group:hover {
+  box-shadow: 10px 40px 60px -20px rgba(13, 3, 90, 0.15);
+  z-index: 100;
+}
+
+.card-group:hover .card-title{
+  color: #22d079;
+}
+
+.card{
+  background-color: #fff6f6;
+} */
+
+
+
+.card {
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.card-title{
+  font-size: 35px;
+}
+
+.card-img-overlay{
+  /* m-auto my-5 w-75 */
+  /* margin: auto; */
+  margin: 50px ;
+  width: 75%;
+}
+
+
+@media (max-width:1319px)  {
+  .card-title{
+    font-size: 25px;
+  }
+  .card-text{
+    display: none;
+  } 
+  
+}
+/* Custom CSS for slider */
+/* @media (max-width: 767px) {
+  .carousel .carousel-item {
+      height: auto;
+  }
+
+  .carousel-inner {
+      display: flex;
+      flex-direction: row;
+  }
+} */
+
+/* Custom CSS for cards */
+/* @media (min-width: 768px) {
+  .card {
+      margin-bottom: 20px;
+  }
+} */
+.carousel{
+  width: 100%!important;
+}
+
+@media (max-width:740px)  {
+  .card-title{
+    font-size: 16px;
+  }
+  .row{
+    gap: 10px;
+  }
+}
+
+
+.card-title,.card-text{
+  color: white;
+}

@@ -1,0 +1,48 @@
+.viewdetails{
+  align-items: center;
+    color: #2e054e;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+}
+.idlabel{
+  background: #f2f3f5;
+    color: #555;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+.card-body,.text-start{
+  margin: 0;
+  padding: 0;
+}
+.my-bold-text {
+  font-weight: bold;
+}
+.my-light-text {
+  font-weight: 600;
+}
+.onhold{
+  background-color: yellow;
+  color: black!important;
+}
+.Accepted{
+  background-color: green;
+}
+.denied{
+  background-color:red;
+}
+.cantview,.canttview{
+  display :none ;
+}
+.canview{
+  display :block!important;
+}
+.can
+{
+  pointer-events: none;
+  opacity: 0.5;
+}

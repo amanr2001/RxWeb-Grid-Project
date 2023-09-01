@@ -1,0 +1,91 @@
+<!-- <p>outlets works!</p> -->
+<div class="container mt-5 ">
+
+    <ul class="nav nav-pills mb-2">
+        <li class="nav-item active ">
+            <a class="nav-link active " data-bs-toggle="pill" href="#outlet"> Add Outlets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="pill" href="#city">Add Cities</a>
+        </li>
+    </ul>
+    <div class="tab-content ">
+        <!-- add outlets -->
+        <div id="outlet" class="tab-pane fade show active">
+
+            <div class="border shadow p-3">
+
+                <form [formGroup]="addoutletForm">
+                    
+                    <h2 class="mb-4 text-center ">Add Outlet</h2>
+
+                    <div class="form-group">
+                        <label for="outletlocation">Outlet Location:</label>
+                        <input type="text" class="form-control" id="outletlocation" formControlName="outletlocation"
+                        placeholder="Enter outlet location">
+                        <div *ngIf="outloc && outloc.invalid && outloc.touched">
+                        <div *ngIf="outloc.errors?.['required']">
+
+                            <p class="text-danger">Location is Required</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="citySelect">City:</label>
+                    <select class="form-control" id="citySelect" formControlName="cityid">
+                        <!-- <option selected>select City</option> -->
+                        <option *ngFor="let item of citydata" value="{{item.cityid}}">{{item.cityname}}</option>
+                    </select>
+                    <div *ngIf="cit && cit.invalid && cit.touched">
+                        <div *ngIf="cit.errors?.['required']">
+                            
+                            <p class="text-danger">City is Required</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-2">
+                    
+                    <button type="button" class="btn btn-primary fs-5 p-2 fw-semibold px-5"
+                    [disabled]="!addoutletForm.valid" (click)="Addouts()">Add</button>
+                </div>
+            </form>
+            <!-- {{addoutletForm.value|json}} -->
+        </div>
+        <!-- add cities -->
+    </div>
+        <div id="city" class="tab-pane fade">
+
+            <div class="border shadow p-3">
+
+                <form [formGroup]="addcity">
+                    
+                <h2 class="mb-4 text-center">Add City</h2>
+
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" class="form-control" id="city" formControlName="cityname"
+                    placeholder="Enter City ">
+                    <div *ngIf="cityname && cityname.invalid && cityname.touched">
+                        <div *ngIf="cityname.errors?.['required']">
+                            
+                            <p class="text-danger">Enter City</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="d-flex justify-content-center mt-2">
+                    
+                    <button type="button" class="btn btn-primary fs-5 p-2 fw-semibold px-5"
+                    [disabled]="!addcity.valid" (click)="Addcit()">Add</button>
+                </div>
+            </form>
+        </div>
+            <!-- {{addoutletForm.value|json}} -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,475 @@
+<!-- <app-navbar (searchdataa)="onsearch($event)"></app-navbar> -->
+
+<div style="background-color: #FAFAFA;">
+  <div class="p-2"></div>
+
+
+  <div class="container ">
+
+    <div class="row">
+
+
+
+      <div class="d-flex flag1 flex-column align-items-stretch flex-shrink-0 sidebar " style="width: 350px;">
+        <div class="list-group border border-2 border-bottom-0 rounded  list-group-flush border-bottom ">
+
+          <a class="list-group-item list-group-item-action py-3 lh-tight rounded">
+
+            <div class="list-group list-group-item-action py-3 lh-tight ">
+
+              <!-- <span class="fs-5 fw-semibold">Spinny</span> --><svg height="43px" viewBox="0 0 109 35" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M29.8512 16.0425C29.6435 16.0424 29.4404 16.1039 29.2677 16.2192C29.095 16.3346 28.9604 16.4985 28.8808 16.6904C28.8013 16.8822 28.7804 17.0933 28.8209 17.297C28.8614 17.5007 28.9613 17.6879 29.1082 17.8347C29.255 17.9816 29.4421 18.0817 29.6458 18.1222C29.8495 18.1628 30.0606 18.142 30.2525 18.0625C30.4443 17.9831 30.6084 17.8485 30.7237 17.6758C30.8391 17.5031 30.9007 17.3001 30.9007 17.0924V17.0924C30.9008 16.9546 30.8737 16.8181 30.8209 16.6907C30.7682 16.5633 30.6909 16.4475 30.5934 16.35C30.496 16.2525 30.3803 16.1752 30.2529 16.1224C30.1255 16.0696 29.989 16.0425 29.8512 16.0425V16.0425Z"
+                  fill="white"></path>
+                <path
+                  d="M4.27498 16.0425C4.0673 16.0424 3.86426 16.1039 3.69154 16.2192C3.51882 16.3346 3.38418 16.4985 3.30465 16.6904C3.22512 16.8822 3.20427 17.0933 3.24474 17.297C3.2852 17.5007 3.38517 17.6879 3.532 17.8347C3.67882 17.9816 3.86591 18.0817 4.06959 18.1222C4.27328 18.1628 4.48441 18.142 4.67629 18.0625C4.86817 17.9831 5.03218 17.8485 5.14757 17.6758C5.26296 17.5031 5.32455 17.3001 5.32455 17.0924V17.0924C5.32476 16.9545 5.29776 16.8179 5.24509 16.6905C5.19242 16.563 5.11513 16.4472 5.01763 16.3497C4.92013 16.2521 4.80435 16.1748 4.67691 16.1221C4.54947 16.0694 4.41289 16.0423 4.27498 16.0425V16.0425Z"
+                  fill="white"></path>
+                <path
+                  d="M18.6919 15.4732C17.0964 15.0795 16.0779 14.7387 15.6364 14.4507C15.433 14.3321 15.2647 14.1616 15.1487 13.9567C15.0326 13.7518 14.9729 13.5199 14.9757 13.2844C14.9683 13.0594 15.0133 12.8357 15.1072 12.631C15.201 12.4263 15.3411 12.2462 15.5165 12.1049C15.9425 11.7891 16.4657 11.6324 16.9952 11.6618C18.55 11.6618 20.057 12.2153 21.5162 13.3223L23.6401 12.8672L23.4181 10.5836C22.5519 9.85804 21.5569 9.30206 20.485 8.94466C19.4023 8.56734 18.2645 8.37236 17.1179 8.36768C15.4013 8.36768 13.9708 8.80041 12.8264 9.66589C11.682 10.5314 11.1082 11.762 11.105 13.3577C11.105 14.9516 11.5584 16.122 12.4654 16.869C13.3723 17.616 14.8029 18.2217 16.7573 18.6861C17.9926 18.9913 18.8188 19.2917 19.2362 19.5874C19.4332 19.719 19.5937 19.8983 19.7028 20.1087C19.8118 20.319 19.8658 20.5535 19.8598 20.7904C19.8676 21.0236 19.8181 21.2552 19.7155 21.4648C19.613 21.6744 19.4606 21.8556 19.2716 21.9926C18.7933 22.3138 18.2231 22.47 17.6479 22.4373C16.1098 22.4373 14.4362 21.6459 12.6271 20.0632L12.6391 22.3492L10.4053 22.8166C12.5318 24.7758 14.9226 25.7553 17.5777 25.7553C19.4203 25.7553 20.9079 25.2863 22.0406 24.3483C22.5871 23.9097 23.0245 23.3504 23.3186 22.7144C23.6127 22.0784 23.7555 21.3829 23.7357 20.6824C23.7357 19.1743 23.2946 18.0278 22.4124 17.2428C21.5302 16.4578 20.29 15.868 18.6919 15.4732Z"
+                  fill="white"></path>
+                <path
+                  d="M33.0923 14.4543L19.7261 1.08719C19.0256 0.390853 18.078 0 17.0904 0C16.1027 0 15.1551 0.390853 14.4547 1.08719L1.08719 14.4543C0.390853 15.1547 0 16.1023 0 17.09C0 18.0776 0.390853 19.0252 1.08719 19.7256L14.4535 33.0904C15.1537 33.7871 16.1014 34.1782 17.0892 34.1782C18.077 34.1782 19.0246 33.7871 19.7249 33.0904L33.09 19.7256C33.7865 19.0255 34.1777 18.0781 34.1782 17.0905C34.1786 16.1028 33.7883 15.1551 33.0923 14.4543ZM12.6281 20.0612C14.4366 21.6434 16.1102 22.4347 17.6488 22.4352C18.2239 22.4679 18.794 22.3117 19.2722 21.9906C19.4611 21.8536 19.6136 21.6723 19.7162 21.4628C19.8188 21.2532 19.8684 21.0216 19.8607 20.7884C19.8667 20.5515 19.8126 20.3169 19.7035 20.1066C19.5944 19.8962 19.4338 19.7169 19.2367 19.5854C18.8189 19.2903 17.9926 18.9898 16.7578 18.684C14.8011 18.2192 13.3706 17.6135 12.4663 16.867C11.5621 16.1206 11.1085 14.9501 11.1055 13.3557C11.1055 11.7618 11.6793 10.5312 12.8269 9.66387C13.9745 8.79653 15.4052 8.36379 17.1189 8.36565C18.266 8.36995 19.4044 8.56494 20.4875 8.94264C21.5597 9.29926 22.5552 9.85428 23.4223 10.5788L23.6406 12.8648L21.5168 13.3198C20.0608 12.2129 18.5541 11.6594 16.9969 11.6594C16.4674 11.6297 15.9442 11.7865 15.5182 12.1025C15.3429 12.2438 15.2028 12.4239 15.1091 12.6286C15.0153 12.8333 14.9704 13.057 14.9779 13.282C14.9749 13.5175 15.0345 13.7496 15.1506 13.9546C15.2667 14.1596 15.435 14.3301 15.6385 14.4487C16.0792 14.7369 17.0977 15.0778 18.694 15.4712C20.2903 15.8646 21.5289 16.4535 22.4098 17.238C23.2917 18.0243 23.7328 19.1708 23.7331 20.6776C23.7528 21.3781 23.61 22.0736 23.3159 22.7097C23.0217 23.3457 22.5842 23.905 22.0376 24.3435C20.9062 25.2826 19.4186 25.7516 17.5747 25.7505C14.9201 25.7505 12.5293 24.771 10.4022 22.8118L12.6428 22.3444L12.6281 20.0612Z"
+                  fill="#ED264F"></path>
+                <path
+                  d="M44.2728 9.6359C40.9131 9.6359 38.4351 11.7565 38.4351 14.6396C38.4351 16.7841 39.269 17.8086 42.1045 19.2383C43.6056 19.9769 43.963 20.3581 43.963 21.0491C43.963 22.026 43.1052 22.6694 41.8424 22.6694C40.7463 22.6694 39.9124 22.3358 38.4827 21.3589L36.6719 24.4088C38.7925 25.7193 40.1268 26.1482 42.033 26.1482C45.5832 26.1482 48.1089 23.9084 48.1089 20.7156C48.1089 18.6188 47.2035 17.4989 44.5825 16.2599C42.9623 15.4974 42.5572 15.1162 42.5572 14.3537C42.5572 13.4959 43.2482 12.9717 44.3442 12.9717C45.202 12.9717 46.0598 13.3291 47.132 14.1392L48.8952 11.0894C47.3465 10.0886 45.893 9.6359 44.2728 9.6359Z"
+                  fill="#2e054e"></path>
+                <path
+                  d="M49.9745 15.1876L47.9969 31.2948H51.9045L52.81 24.0275C53.8584 25.5048 55.0259 26.1482 56.6461 26.1482C59.696 26.1482 61.7213 23.7178 61.7213 20.0246C61.7213 16.8555 60.0296 14.8779 57.3371 14.8779C55.9552 14.8779 54.9782 15.3068 53.5963 16.5458L53.906 15.1876H49.9745ZM55.2165 23.0744C53.9298 23.0744 53.0959 22.1928 53.0959 20.8347C53.0959 19.2144 54.1681 17.9754 55.6216 17.9754C56.9082 17.9754 57.7184 18.8332 57.7184 20.1914C57.7184 21.8593 56.67 23.0744 55.2165 23.0744Z"
+                  fill="#2e054e"></path>
+                <path
+                  d="M63.7284 15.1876L62.4179 25.8384H66.3494L67.6599 15.1876H63.7284ZM63.919 10.7558C63.919 11.9471 64.8721 12.9002 66.0635 12.9002C67.2548 12.9002 68.2079 11.9471 68.2079 10.7558C68.2079 9.56442 67.2548 8.61133 66.0635 8.61133C64.8721 8.61133 63.919 9.56442 63.919 10.7558Z"
+                  fill="#2e054e"></path>
+                <path
+                  d="M69.244 15.1876L67.9335 25.8384H71.865L72.4607 21.0253C72.7228 18.9047 73.2708 18.1422 74.5337 18.1422C75.4391 18.1422 75.9633 18.7379 75.9633 19.8339C75.9633 20.2152 75.9395 20.5249 75.868 21.1444L75.2723 25.8384H79.2038L79.9424 19.8578C80.0378 19.1191 80.0616 18.5711 80.0616 18.1184C80.0616 16.0216 78.8702 14.8779 76.7019 14.8779C75.2485 14.8779 74.2954 15.2829 72.8419 16.5696L73.1755 15.1876H69.244Z"
+                  fill="#2e054e"></path>
+                <path
+                  d="M82.4151 15.1876L81.1046 25.8384H85.0361L85.6317 21.0253C85.8938 18.9047 86.4419 18.1422 87.7047 18.1422C88.6101 18.1422 89.1344 18.7379 89.1344 19.8339C89.1344 20.2152 89.1105 20.5249 89.039 21.1444L88.4434 25.8384H92.3748L93.1135 19.8578C93.2088 19.1191 93.2326 18.5711 93.2326 18.1184C93.2326 16.0216 92.0413 14.8779 89.873 14.8779C88.4195 14.8779 87.4664 15.2829 86.013 16.5696L86.3466 15.1876H82.4151Z"
+                  fill="#2e054e"></path>
+                <path
+                  d="M104 15.1876L101.951 18.5473C101.355 19.5004 100.903 20.3343 100.545 21.1206C100.283 19.8101 100.093 19.143 99.6637 18.0707L98.52 15.1876H94.1596L97.9243 25.0044L94.112 31.2948H98.52L108.48 15.1876H104Z"
+                  fill="#2e054e"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <div class="list-group border border-2 rounded list-group-flush border-bottom scrollarea">
+
+          <a class="list-group-item list-group-item-action py-3 lh-tight">
+            <small class="spn-col">Brands</small>
+
+            <div class="mx-auto w-75 fs-5 scrolling-box">
+
+              <div class="form-check" *ngFor="let item of carmodelfilterdata">
+                <input class="form-check-input" type="checkbox" name="flexRadioDefault"
+                  [checked]="filterobj.cars.includes(item)" (change)="onc($event)" value="{{item}}" id="checkRadio">
+
+                <label class="form-check-label" for="flexRadioDefault1">
+                  {{item}}
+                </label>
+
+
+              </div>
+
+            </div>
+          </a>
+          <a class="list-group-item list-group-item-action py-3 lh-tight">
+            <small class="spn-col">Model Year</small>
+            <div class="mx-auto w-75 fs-5 " *ngFor="let item of objarray?.modelyear">
+
+              <div class="form-check">
+                <input class="form-check-input" (change)="onchange($event)"
+                  [checked]="filterobj.year.includes(item.name)" value="{{item.name}}" type="radio" name="{{item.name}}"
+                  id="{{item.name}}">
+                <label class="form-check-label" for="{{item.name}}">
+                  {{item.name}} or Above
+                </label>
+              </div>
+
+            </div>
+
+
+          </a>
+
+
+          <a class="list-group-item list-group-item-action py-3 lh-tight">
+            <small class="spn-col">Fuel Type</small>
+            <div class="mx-auto w-75 fs-5">
+
+              <ng-container>
+
+                <div class="form-check" *ngFor="let item of objarray?.petrol">
+                  <input class="form-check-input" [checked]="filterobj.Fuel.includes(item.name)"
+                    (change)="onchangefuel($event)" value="{{item.name}}" type="checkbox" name="diesel"
+                    id="{{item.name}}">
+                  <label class="form-check-label" for="{{item.name}}">
+                    {{item.name}}
+                  </label>
+                </div>
+              </ng-container>
+
+
+            </div>
+          </a>
+          <a class="list-group-item list-group-item-action py-3 lh-tight">
+            <small class="spn-col">KM Driven</small>
+            <div class="mx-auto w-75 fs-5">
+
+              <div class="form-check" *ngFor="let item of objarray?.km">
+                <input class="form-check-input" (change)="onselkms($event)"
+                  [checked]="filterobj.kms.includes(item.name)" value="{{item.name}}" type="radio" name="kmname"
+                  id="{{item.name}}">
+                <label class="form-check-label" for="{{item.name}}">
+                  {{item.name}} or Above
+                </label>
+              </div>
+
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="flag2">
+
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Spinny</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <small class="spn-col">Brands</small>
+                <div class="mx-auto w-75 fs-5 scrolling-box">
+                  <div class="form-check" *ngFor="let item of carmodelfilterdata">
+                    <input class="form-check-input" type="checkbox" name="flexRadioDefault" (change)="onc($event)"
+                      value="{{item}}" id="checkRadio">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      {{item}}
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <small class="spn-col">Model Year</small>
+                <div class="mx-auto w-75 fs-5">
+                  <div class="form-check" *ngFor="let item of objarray?.modelyear">
+                    <input class="form-check-input" (change)="onchange($event)" value="{{item.name}}" type="radio"
+                      name="yearname" id="2020">
+                    <label class="form-check-label" for="2020">
+                      {{item.name}} or Above
+                    </label>
+                  </div>
+
+                </div>
+              </li>
+              <li class="list-group-item">
+                <small class="spn-col">Fuel Type</small>
+                <div class="mx-auto w-75 fs-5">
+
+                  <div class="form-check" *ngFor="let item of objarray?.petrol">
+                    <input class="form-check-input" (change)="onchangefuel($event)" value="{{item.name}}"
+                      type="checkbox" name="diesel" id="diesel">
+                    <label class="form-check-label" for="diesel">
+                      {{item.name}}
+                    </label>
+                  </div>
+
+
+
+                </div>
+              </li>
+              <li class="list-group-item">
+                <small class="spn-col">KM Driven</small>
+                <div class="mx-auto w-75 fs-5">
+                  <div class="form-check" *ngFor="let item of objarray?.km">
+                    <input class="form-check-input" (change)="onselkms($event)" value="{{item.name}}" type="radio"
+                      name="kmname" id="5000">
+                    <label class="form-check-label" for="5000">
+                      {{item.name}} or Above
+                    </label>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="offcanvas-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas"
+          aria-controls="sidebarOffcanvas">
+          <div class="blue-box"></div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-4 ">
+
+          <div class="w-100 border border-2 rounded bg-light">
+
+            <select class="form-select border border-0" aria-label="Default select example" (change)="sort($event)">
+              <option selected>Sort BY</option>
+              <option value="1">Newest First</option>
+              <option value="2">Price -Low To High</option>
+              <option value="3">Price -High To Low</option>
+            </select>
+          </div>
+          <div class="w-100 border border-2 rounded bg-light">
+            <div>
+
+
+              <button data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas"
+                class="btn offcanvas-btn text-center w-100"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="me-2" style="width: 20px;">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                </svg>Filter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Main Right side -->
+      <div class="col maincontent">
+        <!-- <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-6  col-12">
+
+                <img class="img-fluid"
+                  src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_home_test_drive.jpeg?w=480&dpr=1.0"
+                  alt="...">
+
+              </div>
+              <div class="col-md-6  col-12">
+
+                <img class="img-fluid"
+                  src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_like_this_car.jpeg?w=480&dpr=1.0"
+                  alt="...">
+              </div>
+
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+
+              <div class="col-md-6  col-12">
+
+                <img class="img-fluid"
+                  src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_buy_back_background.jpeg?w=480&dpr=1.0"
+                  alt="...">
+              </div>
+              <div class="col-md-6  col-12">
+                <img class="img-fluid"
+                  src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_360_background.jpeg?w=480&dpr=1.0"
+                  alt="...">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+
+
+
+        <!-- <div id="myCarousel" class="carousel slide container" data-ride="carousel">
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+            <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <img class="img-fluid" src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_home_test_drive.jpeg?w=480&dpr=1.0">
+              </div>
+              <div class="col-md-6 col-12">
+                <img class="img-fluid" src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_like_this_car.jpeg?w=480&dpr=1.0">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <img class="img-fluid" src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_buy_back_background.jpeg?w=480&dpr=1.0">
+              </div>
+              <div class="col-md-6 col-12">
+                <img class="img-fluid" src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/components/SpinnyMarketingBanner/assets/desktop_360_background.jpeg?w=480&dpr=1.0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+
+        <!-- search filters data -->
+
+        <div *ngIf="filterobj.cars.length || filterobj.Fuel.length || filterobj.kms.length || filterobj.year.length ">
+          <button class="btn m-2 btn-primary" (click)="clearall()"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="" style="width: 18px;">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+            Clear All</button>
+          <ng-container class="m-2" *ngFor="let item of filterobj.cars"><span class="badge text-bg-info  px-2 py-2 m-2"
+              style="font-size: 14px;">{{item}}</span></ng-container>
+
+
+          <ng-container class="m-2"><span class="badge text-bg-info  px-2 py-2 m-2"
+              style="font-size: 14px;">{{filterobj.year}}</span></ng-container>
+          <ng-container class="m-2" *ngFor="let item of filterobj.Fuel"><span class="badge text-bg-info  px-2 py-2 m-2"
+              style="font-size: 14px;">{{item}}</span></ng-container>
+          <ng-container class="m-2"><span class="badge text-bg-info  px-2 py-2 m-2"
+              style="font-size: 14px;">{{filterobj.kms}}</span></ng-container>
+        </div>
+        <!--  -->
+
+
+
+        <!-- cardds -->
+        <div class="d-flex justify-content-between mt-2">
+
+          <p class="spn-col"> <span style="font-size: 22px;">{{filteredarr.length}}</span> Used Cars in <span
+              style="font-size: 22px;"> {{city}} </span></p>
+          <!-- <div class="text-center m-0 w-25 border border-2 rounded bg-light">
+
+          <button class="btn spn-col text-center "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="" style="width: 20px;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Sort by<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+          </button>
+        </div> -->
+          <select class="form-select w-25 flag1" aria-label="Default select example" (change)="sort($event)">
+            <option selected value="0">Sort BY</option>
+            <option value="1">Recently Added</option>
+            <option value="2">Price -Low To High</option>
+            <option value="3">Price -High To Low</option>
+          </select>
+
+        </div>
+
+        <div class="d-flex flex-wrap gap-3 m-3 ">
+
+          <div *ngFor="let item of filteredarr" class="">
+            <div class="card carddisplay rounded " style="width: 18rem;height: 22rem;">
+
+              <div id="{{item.carid}}" class="carousel slide " style="width: 18rem;">
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="{{item.images.leftside}}" class="d-block crdimg  w-100" style="height: 200px ;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{item.images.backview}}" class="d-block crdimg w-100 " style="height: 200px;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{item.images.frontview}}" class="d-block crdimg w-100 " style="height: 200px;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{item.images.rightside}}" class="d-block crdimg w-100 " style="height: 200px;" alt="...">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" role="button" [href]="'#'+item.carid" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" role="button" [href]="'#'+item.carid" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
+              <!-- <div  id="dynamic1-" class="carousel slide " data-bs-ride="carousel">
+                <div class="carousel-inner" >
+                  <div class="carousel-item py-4" *ngFor="let items of arrayofimages;let i = index"    [ngClass]="{'active' : i == 0}">
+                  <div class="d-flex justify-content-center">
+                    <img src="{{items}}" class="d-block w-100 " style="height: 200px;" alt="...">
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button class="carousel-control-prev" type="button" data-bs-target="#dynamic1-" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon bg-dark rounded-5 " aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#dynamic1-" data-bs-slide="next">
+                  <span class="carousel-control-next-icon  bg-dark rounded-5 " aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div> -->
+
+              <div class="card-body mt-2 mx-2 p-0 ">
+                <div class="d-flex   justify-content-between txt-col">
+
+                  <span class="badge rounded-pill text-bg-secondary">#{{item.carid}}</span>
+                  <a type="button" (click)="wishlist(item.carid)" *ngIf="!item.wishl?.wishliststatus"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class=""
+                      fill="#2e054e" stroke-width="0">
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28zM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z">
+                      </path>
+                    </svg></a>
+                  <a type="button" (click)="wishlist(item.carid)" *ngIf="item.wishl?.wishliststatus"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                      class="bi bi-heart-fill " style="color:red" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd"
+                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                    </svg></a>
+                </div>
+              </div>
+              <a [routerLink]="['/cars',item.carid]" type="button" class="text-decoration-none txt-col">
+                <div class="card-body ">
+                  <div class="d-flex m-0  justify-content-between txt-col">
+
+
+                    <h5 class="card-title txt-col p-0">{{item.year}} {{item.carbrand}} {{item.carmodel}}</h5>
+
+                  </div>
+
+                  <p class="card-text txt-col ">{{item.fuel}}-{{item.owner}}</p>
+                  <h5 class="card-title p-0 txt-col"> ₹ {{item.sellerprice}}</h5>
+                  <div>
+                    <hr class="m-2">
+
+                    <small class="text-secondary"><svg width="10.73" height="12px" viewBox="0 0 10 15" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="1"
+                          d="M4.99967 0.166748C2.54967 0.166748 0.333008 2.04508 0.333008 4.95008C0.333008 6.80508 1.76217 8.98675 4.61467 11.5009C4.83634 11.6934 5.16884 11.6934 5.39051 11.5009C8.23717 8.98675 9.66634 6.80508 9.66634 4.95008C9.66634 2.04508 7.44967 0.166748 4.99967 0.166748ZM4.99967 6.00008C4.35801 6.00008 3.83301 5.47508 3.83301 4.83341C3.83301 4.19175 4.35801 3.66675 4.99967 3.66675C5.64134 3.66675 6.16634 4.19175 6.16634 4.83341C6.16634 5.47508 5.64134 6.00008 4.99967 6.00008Z"
+                          fill="#cacaca"></path>
+                      </svg> {{item.loc}}</small>
+
+                  </div>
+
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

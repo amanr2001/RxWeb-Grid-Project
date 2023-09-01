@@ -1,0 +1,17 @@
+.bkg{
+  background-image: url('https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+p,a,h5{
+  color:  white;
+}
+
+@media (max-width:600px) {
+  .spinnybar{
+    width: 100%!important;
+  }
+  
+}

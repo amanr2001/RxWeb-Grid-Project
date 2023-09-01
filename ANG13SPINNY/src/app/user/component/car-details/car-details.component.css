@@ -1,0 +1,113 @@
+
+.cardhov {
+  transition: box-shadow 0.3s;
+}
+
+.cardhov:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.spn-col{
+  color: #2e054e;
+  font-weight: 600;
+}
+.my-bold-text {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+.ERR{
+  pointer-events: none;
+  opacity: 0.5;
+}
+.avai{
+  color: #2e054e;
+  background-color: #f2f3f5;
+   /* background-color: green; */
+}
+.none{
+  background-color: green;
+
+
+}
+.buttonn:focus{
+  color: white;
+  background-color: #6300a3;
+}
+
+.freetestdrive{
+  /* padding:15px 150px ; */
+  background-color: #ed264f;
+  color: #fff;
+}
+.abcd{
+  pointer-events: none;
+  background-color: #f2f3f5;
+}
+
+
+#abcd{
+  width: 100%;
+}
+.image-caption {
+  position: relative;
+
+
+}
+.round{
+  border-radius: 20px;
+  opacity: 0.8;
+  /* box-shadow: 4px 4px 10px  #6300a3; */
+  filter: drop-shadow(4px 4px 5px rgba(0,0,0,0.4));
+
+}
+
+.image-caption-text {
+  position: absolute;
+  bottom: 20%;
+  left: 10px;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 90%;
+  text-align: center;
+  opacity: 1;
+  margin: auto;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+.maincontent{
+  margin-top: auto;
+  overflow-y: auto;
+  /* overflow: hidden; */
+
+  height: 130vh;
+}
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.card {
+  border-radius: 16px;
+}
+#carouselExample{
+  
+  border-radius: 16px;
+}
+
+@media (max-width:500px){
+  .crdimg{
+    /* width: auto!important; */
+    height: auto!important;
+  }
+  .maincontent{
+ 
+  
+    height: auto;
+  }
+}

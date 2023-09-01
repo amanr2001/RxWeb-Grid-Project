@@ -1,0 +1,120 @@
+<!-- <app-navbar></app-navbar> -->
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="form">
+
+                  <div class=" align-items-center mb-4">
+                    <em class="fas fa-user fa-lg me-3 fa-fw"></em>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" formControlName="Username" />
+                      <label class="form-label" for="form3Example1c">Your Name</label>
+                    </div>
+                  </div>
+                  <form [formGroup]="otpform">
+
+                    <div class=" align-items-center mb-4">
+                      <em class="fas fa-envelope fa-lg me-3 fa-fw"></em>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="email" id="form3Example3c" class="form-control" formControlName="useremail" />
+                        <label class="form-label" for="form3Example3c">Your Email</label>
+                      </div>
+                    </div>
+                    <!-- {{otpform.value|json}} -->
+                  </form>
+                  <div class=" align-items-center mb-4">
+                    <em class="fas fa-lock fa-lg me-3 fa-fw"></em>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4c" class="form-control" formControlName="Password" />
+                      <label class="form-label" for="form3Example4c">Password</label>
+                    </div>
+                    <div *ngIf="upass && upass.invalid && upass.touched">
+                      <div *ngIf="upass.errors?.['required']">
+                        <small class="error">Field is Required</small>
+
+                      </div>
+                      <div *ngIf="upass.errors?.['pattern']">
+                        <small class="error">Password must be of 8 characted and should contain an uppercase, one lowercase , Numbers and Special characters</small>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- use it later for phone number  -->
+
+                  <!-- <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="num" id="form3Example4cd" class="form-control" formControlName="userpass" />
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                    </div>
+                  </div> -->
+
+                  <!-- <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div> -->
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <a type="button" [routerLink]="['/login']" class="btn text-bg-info ">Login</a>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" [disabled]="!otpform.valid" (click)="otpauth()" data-bs-toggle="modal" data-bs-target="#exampleModalToggle1" class="btn btn-primary btn-lg">Register</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://spn-sta.spinny.com/spinny-web/static-images/assets/images/pages/HowItWorks/components/BuyerBenefits/assets/BuyingHIW_3_desktop.png?w=1300&dpr=1.0"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- First modal dialog -->
+      <div class="modal fade" id="exampleModalToggle1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel1" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel1">OTP Verification</h5>
+        <button type="button" (click)="regis()" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
+      </div>
+      <div class="modal-body mx-auto">
+        OTP sent to {{otpform.value.useremail}} <span><a data-bs-dismiss="modal" href="">Edit</a></span>
+      </div>
+      <div class="container my-4">
+
+        <form [formGroup]="form" class="form-floating">
+          <input type="password" class="form-control" formControlName="otp" id="floatingPassword"  placeholder="Password">
+          <label for="floatingPassword">OTP</label>
+        </form>
+
+        <button type="button" [disabled]="!form.valid" (click)="regis()" data-bs-dismiss="modal"  class="btn btn-primary btn-lg">Register</button>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+  </div>
+  <!-- {{form.value|json}} -->
+</section>

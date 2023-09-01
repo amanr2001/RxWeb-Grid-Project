@@ -1,0 +1,32 @@
+
+  .container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 100px;
+    margin: 0;
+    color: #e74c3c;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #1e87cc;
+  }
+  

@@ -1,0 +1,79 @@
+<!-- <p>wishlist works!</p> -->
+<div class="container ">
+  <!-- {{filteredarr|json}} -->
+  <p class="fs-4 ms-md-3"> ShortListed cars</p>
+  <div *ngIf="filteredarr" class="d-flex flex-wrap gap-3 m-md-3  ">
+
+    <div *ngFor="let item of filteredarr" class="">
+      <!-- <div *ngFor="let item of items.car"> -->
+      <!-- {{item.car.carid|json}} -->
+      <div class="card carddisplay rounded " style="width: 22rem;height: 22rem;">
+
+        <div id="{{item.car.carid}}" class="carousel slide " style="width: 22rem;">
+          <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+              <img src="{{item.car.images.leftside}}" class="d-block crdimg  w-100" style="height: 200px ;" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{{item.car.images.backview}}" class="d-block crdimg w-100 " style="height: 200px;" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{{item.car.images.frontview}}" class="d-block crdimg w-100 " style="height: 200px;" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{{item.car.images.rightside}}" class="d-block crdimg w-100 " style="height: 200px;" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" role="button" [href]="'#'+item.car.carid" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" role="button" [href]="'#'+item.car.carid" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+
+
+
+        <a [routerLink]="['../cars',item.car.carid]" type="button" class="text-decoration-none txt-col">
+          <div class="card-body ">
+            <span class="badge rounded-pill text-bg-secondary">#{{item.car.carid}}</span>
+            <div class="d-flex m-0  justify-content-between txt-col">
+
+
+              <h5 class="card-title txt-col p-0">{{item.car.year}} {{item.car.carbrand}} {{item.car.carmodel}}</h5>
+
+            </div>
+
+            <p class="card-text txt-col ">{{item.car.fuel}}-{{item.car.owner}}</p>
+            <h5 class="card-title p-0 txt-col"> ₹ {{item.car.sellerprice}}</h5>
+            <hr class="m-2">
+            <div>
+
+              <small class="text-secondary"><svg width="10.73" height="12px" viewBox="0 0 10 15" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="1"
+                    d="M4.99967 0.166748C2.54967 0.166748 0.333008 2.04508 0.333008 4.95008C0.333008 6.80508 1.76217 8.98675 4.61467 11.5009C4.83634 11.6934 5.16884 11.6934 5.39051 11.5009C8.23717 8.98675 9.66634 6.80508 9.66634 4.95008C9.66634 2.04508 7.44967 0.166748 4.99967 0.166748ZM4.99967 6.00008C4.35801 6.00008 3.83301 5.47508 3.83301 4.83341C3.83301 4.19175 4.35801 3.66675 4.99967 3.66675C5.64134 3.66675 6.16634 4.19175 6.16634 4.83341C6.16634 5.47508 5.64134 6.00008 4.99967 6.00008Z"
+                    fill="#cacaca"></path>
+                </svg> {{item.car.loc}}</small>
+
+            </div>
+
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+ 
+  <div *ngIf="filteredarr === undefined || filteredarr.length == 0" class="text-center w-25 m-auto ">
+
+    <div  >
+
+      <img src="https://img.icons8.com/?size=512&id=82594&format=png" class="w-75 m-auto  " alt="error">
+    </div>
+    <p class="fs-5 mt-5">No Cars are shortlisted</p>
+  </div>
+  <!--  -->
+</div>

@@ -1,0 +1,133 @@
+<!--  -->
+
+<!-- <app-navbar></app-navbar> -->
+<section class="intro container">
+
+  <div *ngIf="!flag" class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h4>Sign In</h4>
+      </div>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginform">
+        <input type="text" formControlName="username" id="login" class="fadeIn second" name="login" placeholder="username">
+        <div *ngIf="uname && uname.invalid && uname.touched">
+          <div *ngIf="uname.errors?.['required']">
+            <small class="text-danger">Field is Required</small>
+          </div>
+        </div>
+        <input type="password" formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password">
+        <div *ngIf="pass && pass.invalid && pass.touched">
+          <div *ngIf="pass.errors?.['required']">
+            <small class="text-danger">Field is Required</small>
+          </div>
+        </div>
+        <button type="button" class="btn px-5 py-1 btncol" [disabled]="!loginform.valid" (click)="logged()"  >Log In</button>
+        <!-- <button class="btn btn-primary btn-rounded" (click)="logged(loginform.value)"  style="background-color: #92aad0;">Log in</button> -->
+
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" (click)="forgotpass()">Forgot Password?</a>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="flag" class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h4>Enter Email</h4>
+      </div>
+
+      <!-- Login Form -->
+      <form [formGroup]="emailforgot">
+        <input type="text" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Email">
+        <div *ngIf="uemail && uemail.invalid && uemail.touched">
+          <div *ngIf="uemail.errors?.['required']">
+            <small class="text-danger">Email is Required</small>
+          </div>
+          <div *ngIf="uemail.errors?.['email']">
+            <small class="text-danger">Email Format is Incorrect.</small>
+          </div>
+        </div>
+        
+        <button type="button" class="btn px-5 py-1 btncol" [disabled]="!emailforgot.valid" (click)="sendforgototp()"  data-bs-toggle="modal" data-bs-target="#exampleModal"  >Send Otp</button>
+        <!-- <button class="btn btn-primary btn-rounded" (click)="logged(loginform.value)"  style="background-color: #92aad0;">Log in</button> -->
+
+      </form>
+
+      <!-- Remind Passowrd -->
+     
+
+    </div>
+  </div>
+  
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+        <form [formGroup]="forgototp">
+          <input type="text" formControlName="otp" id="otp" class="" name="otp" placeholder="Enter OTP">
+          <div *ngIf="uotp && uotp.invalid && uotp.touched">
+            <div *ngIf="uotp.errors?.['required']">
+              <small class="text-danger">OTP is Required</small>
+            </div>
+         
+          </div>
+          
+          <!-- <button class="btn btn-primary btn-rounded" (click)="logged(loginform.value)"  style="background-color: #92aad0;">Log in</button> -->
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        <button type="button" class="btn px-5 py-1 w-50 mx-auto btncol text-center" [disabled]="!forgototp.valid"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" (click)="verifyotp()">Veriy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="passwordreset">
+          <input type="text" formControlName="password" id="password" class="" name="password" placeholder="Enter password">
+          <div *ngIf="rpass && rpass.invalid && rpass.touched">
+            <div *ngIf="rpass.errors?.['required']">
+              <small class="text-danger">Password is Required</small>
+            </div>
+         
+
+          </div>
+          
+         
+          {{passwordreset.value|json}}
+          
+          
+        </form>      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn px-5 py-1 w-50 mx-auto btncol text-center" [disabled]="!passwordreset.valid" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="reset()">Reset Password</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+</section>

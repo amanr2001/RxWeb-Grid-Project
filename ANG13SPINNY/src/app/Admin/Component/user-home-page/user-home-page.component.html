@@ -1,0 +1,104 @@
+<!-- <p>user-home-page works!</p> -->
+<div class="container">
+
+    <form [formGroup]="ManageHomeForm">
+        <label for="">Image Title</label>
+        <input type="text" class="form-control " formControlName="imageTitle">
+        <label for="">Image Text</label>
+        <input type="text" class="form-control " formControlName="imageText">
+
+        <label for="">Select FrontPage Category</label>
+        <select class="form-select " formControlName="mainPageType">
+            <option selected value="31">TopBanner</option>
+            <option value="32">DesktopHorizontalScroll</option>
+            <option value="33">DesktopCarFunctionalityCard</option>
+        </select>
+        <label for="">Status</label>
+        <div class="form-check">
+            <input class="form-check-input" checked [value]="34" formControlName="pageStatus" type="radio"
+                id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Active
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" [value]="35" formControlName="pageStatus" type="radio"
+                id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+                InActive
+            </label>
+        </div>
+
+
+        <label class="form-label" for="customFile">Upload Image</label>
+        <input type="file" formControlName="imageUrl" (change)="selectimg($event)" class="form-control"
+            id="customFile" />
+
+        <div class="mt-3 d-flex   ">
+            <button class="btn btn-primary  m-2" (click)="addData()">Add</button>
+            <button class="btn btn-success m-2" (click)="upd()">update</button>
+        </div>
+    </form>
+
+    <!-- <table class="table table-bordered table-hover ">
+
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>status</th>
+
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let item of tabData">
+            <td>{{item.data.mainId}}</td>
+            <td>{{item.data.imageTitle}}</td>
+            <td>{{item.data.name}}</td>
+            <td [ngClass]="{'active':item.data.pstatus=='Active','inactive':item.data.pstatus=='InActive'}">
+                {{item.data.pstatus}}</td>
+            <td><button class="btn btn-outline-info " (click)="pat(item.data)">Edit</button></td>
+            <td><button class="btn btn-outline-danger  " data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    (click)="del(item.data.mainId)">Delete</button></td>
+
+        </tr>
+    </table> -->
+    <!-- {{tabData|json}} -->
+    <!-- Rxgrid -->
+    <input class="form-control m-2" (input)="search(data.value)" #data type="search" placeholder="Search" aria-label="Search">
+
+    <div class="table-responsive">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper pb-0 dt-bootstrap4">
+            <div class="table-responsive">
+                <div class="dataTables_wrapper pb-0 dt-bootstrap4">
+                    <!-- <div id="grid"></div> -->
+                    <rx-grid [design]="gridConfig"></rx-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you Sure You Want To Delete?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="deletedata()">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

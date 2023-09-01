@@ -1,0 +1,50 @@
+
+<!-- <p>bookedcars works!</p> -->
+<div *ngIf="bookedcars">
+  <h3 class="spn-col ms-3">Booked Cars</h3>
+
+    <div *ngFor="let item of bookedcars|paginate:{itemsPerPage:4,currentPage:p}" class="m-2">
+        <div *ngFor="let items of item.cars " >
+      <div class="card ">
+        <div class="df d-flex flex-wrap w-100 m-auto p-1">
+
+          <div class="m-auto  p-2">
+
+            <img src="{{items.images.leftside}}" class="card-img-top text-center " alt="..." style="width: 200px;">
+          </div>
+          <div class="card-body  d-flex flex-wrap justify-content-between">
+            <div>
+
+              <small class="text-muted">{{items.year}}</small>
+
+              <p style="color: #2e054e;" class="my-bold-text ">{{items.carbrand}} {{items.carmodel}}</p>
+              <p class="text-secondary spn-col">{{items.kmdriven|kmconvert}} km | {{items.fuel}}</p>
+              <p style="color: #2e054e;" class="my-bold-text ">{{items.price| currency:'INR'}}</p>
+            </div>
+            <!-- <div class="d-flex flex-wrap align-items-center ">
+              <button class="btncol btn px-1 py-1 px-md-5 py-md-2" (click)="delcar(items.carid)">Cancel Booking</button>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+     
+    </div>
+    
+  </div>
+  <div class="text-center ">
+
+    <pagination-controls (pageChange)="p=$event" ></pagination-controls>
+  </div>
+</div>
+<div class="container" >
+
+  <div *ngIf="bookedcars == undefined || bookedcars.length == 0" class="text-center w-25 m-auto ">
+    
+    <div  >
+      
+      <img src="https://img.icons8.com/?size=512&id=p1yIKD1Sjsp1&format=png" class="w-75 m-auto  " alt="error">
+    </div>
+    <p class="fs-5 mt-5">Nothing to Show</p>
+  </div>
+</div>

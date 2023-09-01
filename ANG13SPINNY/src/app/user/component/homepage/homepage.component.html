@@ -1,0 +1,444 @@
+<!-- <app-navbar></app-navbar> -->
+
+<div class="">
+  <div class="container-fluid ">
+
+
+    <div class="row ">
+      <!-- <div class="col-12 col-md-6 ">
+
+
+
+        <div class="card text-wrap text-bg-dark">
+          <img src="https://d2m3nfprmhqjvd.cloudfront.net/blog/20230331151635/Gofar-2-jpg.webp" class="card-img"
+            alt="...">
+          <div class="  card-img-overlay   ">
+            <h5 class="card-title ">New Beginnings in a Car of your Own</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <button class="btn btn-danger m-2 py-2 px-4" [routerLink]="['used','Ahmedabad']">Buy Car</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+
+
+        <div class="card text-bg-dark">
+          <img
+            src="https://d2m3nfprmhqjvd.cloudfront.net/blog/20220317193704/Spinny-Drive-Free-Break-the-Bias-1160x653.jpg"
+            class="card-img" alt="...">
+          <div class="">
+
+            <div class="  card-img-overlay ">
+              <h5 class="card-title ">Sell Your Car For Best Price</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <button (click)="sellcar()" class="btn btn-danger m-2 py-2 px-4">Sell Car</button>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+      <!-- dynamic frontpage carousel -->
+
+
+      <div id="dynamic3-" class="carousel slide d-none d-lg-block w-100" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item " *ngFor="let item of mainpagedata?.topbanner;let i=index"
+            [ngClass]="{'active' : i == 0}">
+            <div class="d-flex justify-content-center">
+              <div class="card text-bg-dark w-100 ">
+                <img src="{{item.imageUrl}}" class="card-img  " alt="...">
+                <div class="card-img-overlay">
+                  <h5 class="card-title">{{item.imageTitle}}</h5>
+                  <p class="card-text">{{item.imageText}}</p>
+                  <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button class="carousel-control-prev" type="button" data-bs-target="#dynamic3-" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-5 " aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#dynamic3-" data-bs-slide="next">
+            <span class="carousel-control-next-icon  bg-dark rounded-5 " aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+
+      <hr class="mt-5">
+
+      <div class=" w-auto mx-auto my-2">
+
+        <img
+          src="https://d1263yrto77i5b.cloudfront.net/0.2.1146/assets/images/pages/SpinnyAssured/components/LandingSection/assets/spinny_assured_logo_desktop.png"
+          class="" style="width: 150px;" alt="">
+      </div>
+
+      <!-- <div class="d-flex justify-content-center flex-wrap gap-3">
+        <div class="card card-group" style="width: 18rem;">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKFrE4YQqjyZyqsvkQ7kKGAoF08npE-8kWjlhjI_TrPJd3RKME-xM8685ihZvf4OEH1f4&usqp=CAU"
+            class="card-img-top" alt="...">
+
+          <div class="card-body  rounded text-white bg-danger">
+            <h5 class="card-title mb-2" style="font-size: 25px;">200 Point Inspection</h5>
+          </div>
+        </div>
+        <div class="card card-group" style="width: 18rem;">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJqjuh_jTyO0AD02JnAXxh98M9qIRo2F0K2tijlqTTCXy5a4nzhXUM0nLWalcHELjPHU&usqp=CAU"
+            class="card-img-top" alt="...">
+          <div class="card-body rounded text-white bg-danger">
+            <h5 class="card-title" style="font-size: 25px;">One year warranty</h5>
+          </div>
+        </div>
+        <div class="card card-group" style="width: 18rem;">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA6yjYE26mZt5X8cx8Ori6cS2yf_7J9bZH8x0FtKCZyo_JLD1dkF2Fyv6tnkx-ICXJGug&usqp=CAU"
+            class="card-img-top" alt="...">
+          <div class="card-body rounded text-white bg-danger">
+            <h5 class="card-title" style="font-size: 25px;">Fixed Assurance</h5>
+          </div>
+        </div>
+        <div class="card card-group" style="width: 18rem;">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXpI77tzwWA2ZGLMGfxt0x25kXnqCotl-Nx0IqQsPWudWUiqCRAhKfmtYTmfarXQEq9pg&usqp=CAU"
+            class="card-img-top" alt="...">
+          <div class="card-body rounded text-white bg-danger">
+            <h5 class="card-title" style="font-size: 24px;">Money back Guarantee</h5>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Dynamic Car Features Card -->
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <div class="card card-group" *ngFor="let item of mainpagedata?.desktopHorizontalScroll" style="width: 18rem;">
+          <img src="{{item.imageUrl}}" class="card-img-top" alt="...">
+
+          <div class="card-body  rounded text-white bg-danger">
+            <h5 class="card-title mb-2" style="font-size: 25px;">{{item.imageTitle}}</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile view: Onscreen slider -->
+      <!-- <div class="carousel slide d-block w-100 d-md-none" data-ride="carousel" id="mobileCarousel">
+        <div class="carousel-inner">
+
+          
+          <div class="carousel-item active">
+            <div class="card" style="width: 22rem;">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/ZMEcczt6RE2KfOK5XCiWaA/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Value for money</h4>
+                  <p class="card-text">Affordable, reliable rides</p>
+                  <a href="/used-value-lifestyle-cars-in-chennai/s/?utm_medium=&amp;utm_source=spinny&amp;utm_content=/&amp;utm_term=home_lifestyle&amp;utm_campaign=max_budget_redirection&amp;CTA=home_lifestyle"
+                    class="btn btn-primary">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/%2BKrGbVyBT2SQVYBbTFdyNQ/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Feature packed</h4>
+                  <p class="card-text">Smart, intelligent rides</p>
+                  <a href="/used-feature-packed-lifestyle-cars-in-chennai/s/?utm_medium=&amp;utm_source=spinny&amp;utm_content=/&amp;utm_term=home_lifestyle&amp;utm_campaign=max_budget_redirection&amp;CTA=home_lifestyle"
+                    class="btn btn-primary">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/QfyWveEiQsmJczrSr2FAsg/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Daily commuter</h4>
+                  <p class="card-text">Compact, easy to use</p>
+                  <a href="/used-commuter-lifestyle-cars-in-chennai/s/?utm_medium=&amp;utm_source=spinny&amp;utm_content=/&amp;utm_term=home_lifestyle&amp;utm_campaign=max_budget_redirection&amp;CTA=home_lifestyle"
+                    class="btn btn-primary">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/iIOcHsv2Rxy4wmiUJ5VSGg/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Family car</h4>
+                  <p class="card-text">Safe, comfortable &amp; spacious</p>
+                  <a href="/used-family-lifestyle-cars-in-chennai/s/?utm_medium=&amp;utm_source=spinny&amp;utm_content=/&amp;utm_term=home_lifestyle&amp;utm_campaign=max_budget_redirection&amp;CTA=home_lifestyle"
+                    class="btn btn-primary">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/mRHuBQXQQ7aI2Qzy68t0eg/file.jpeg" alt="">
+
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Multipurpose</h4>
+                  <p class="card-text">Flexible rides, for any journey</p>
+                  <a href="/used-adventure-lifestyle-cars-in-chennai/s/?utm_medium=&amp;utm_source=spinny&amp;utm_content=/&amp;utm_term=home_lifestyle&amp;utm_campaign=max_budget_redirection&amp;CTA=home_lifestyle"
+                    class="btn btn-primary">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/4_Uyd9PkRPWMs7gatU2XKQ/file.jpg" alt="">
+
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Luxury</h4>
+                  <p class="card-text">Luxurious, performance-driven</p>
+                  <a href="/max/used-luxury-lifestyle-cars-in-chennai/s/?utm_medium=&amp;utm_source=spinny&amp;utm_content=/&amp;utm_term=home_lifestyle&amp;utm_campaign=max_budget_redirection&amp;CTA=home_lifestyle"
+                    class="btn btn-primary">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#mobileCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#mobileCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div> -->
+
+
+
+
+      <div id="carouselExample" class="carousel slide d-block w-100 d-md-none">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/ZMEcczt6RE2KfOK5XCiWaA/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Value for money</h4>
+                  <p class="card-text">Affordable, reliable rides</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/%2BKrGbVyBT2SQVYBbTFdyNQ/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Feature packed</h4>
+                  <p class="card-text">Smart, intelligent rides</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/QfyWveEiQsmJczrSr2FAsg/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Daily commuter</h4>
+                  <p class="card-text">Compact, easy to use</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/iIOcHsv2Rxy4wmiUJ5VSGg/file.jpeg" alt="">
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Family car</h4>
+                  <p class="card-text">Safe, comfortable &amp; spacious</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/mRHuBQXQQ7aI2Qzy68t0eg/file.jpeg" alt="">
+
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Multipurpose</h4>
+                  <p class="card-text">Flexible rides, for any journey</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <img src="https://d308ljkq6e62o1.cloudfront.net/img/4_Uyd9PkRPWMs7gatU2XKQ/file.jpg" alt="">
+
+              <div class="card-img-overlay">
+                <div class="card-body">
+                  <h4 class="card-title">Luxury</h4>
+                  <p class="card-text">Luxurious, performance-driven</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Desktop view: Cards -->
+
+
+    </div>
+
+    <!-- <div class="container d-none d-md-block">
+      <hr>
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+
+          <div class="card">
+            <img src="https://d308ljkq6e62o1.cloudfront.net/img/ZMEcczt6RE2KfOK5XCiWaA/file.jpeg" alt="">
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="card-title">Value for money</h4>
+                <p class="card-text">Affordable, reliable rides</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+
+          <div class="card">
+            <img src="https://d308ljkq6e62o1.cloudfront.net/img/%2BKrGbVyBT2SQVYBbTFdyNQ/file.jpeg" alt="">
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="card-title">Feature packed</h4>
+                <p class="card-text">Smart, intelligent rides</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+
+          <div class="card">
+            <img src="https://d308ljkq6e62o1.cloudfront.net/img/QfyWveEiQsmJczrSr2FAsg/file.jpeg" alt="">
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="card-title">Daily commuter</h4>
+                <p class="card-text">Compact, easy to use</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+
+          <div class="card">
+            <img src="https://d308ljkq6e62o1.cloudfront.net/img/iIOcHsv2Rxy4wmiUJ5VSGg/file.jpeg" alt="">
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="card-title">Family car</h4>
+                <p class="card-text">Safe, comfortable &amp; spacious</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+
+          <div class="card">
+            <img src="https://d308ljkq6e62o1.cloudfront.net/img/mRHuBQXQQ7aI2Qzy68t0eg/file.jpeg" alt="">
+
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="card-title">Multipurpose</h4>
+                <p class="card-text">Flexible rides, for any journey</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+
+          <div class="card">
+            <img src="https://d308ljkq6e62o1.cloudfront.net/img/4_Uyd9PkRPWMs7gatU2XKQ/file.jpg" alt="">
+
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="card-title">Luxury</h4>
+                <p class="card-text">Luxurious, performance-driven</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="text-center mt-4">
+      </div>
+    </div> -->
+
+    <!-- Dynamic Functionality card-->
+    <div class="container d-none d-md-block">
+      <hr>
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let item of mainpagedata?.desktopCarFunctionalityCard">
+
+          <div class="card" >
+            <img src="{{item.imageUrl}}" alt="">
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="card-title">{{item.imageTitle}}</h4>
+                <p class="card-text">{{item.imageText}}</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </div>
+
+  <app-footer></app-footer>

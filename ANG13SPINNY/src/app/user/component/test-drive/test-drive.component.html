@@ -1,0 +1,103 @@
+<!-- <p>test-drive works!</p> -->
+
+<div *ngIf="testarr">
+  <h3 class="spn-col ">Test Drives</h3>
+  <!-- <div class="d-flex m-3 gap-4">
+    <button (click)="interested()"  class="btn   intbut ">Interested</button>
+    <button (click)="confirmed()" class="btn intbut">Confirmed</button>
+  </div> -->
+  <ul class="nav nav-pills ">
+    <li class="nav-item active ">
+      <a class="nav-link active " data-bs-toggle="pill" href="#interested"> Interested</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="pill" href="#completed">Confirmed</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+
+    <div id="interested" class="tab-pane fade show  active">
+
+      <div *ngFor="let item of testarr |paginate:{itemsPerPage:4,currentPage:p}" class="m-2">
+
+        <div class="card ">
+          <div class="d-flex w-100 m-auto p-1">
+
+            <div class="m-auto  p-2">
+
+              <img src="{{item.cars.images.leftside}}" class="card-img-top text-center " alt="..."
+                style="width: 200px;">
+            </div>
+            <div class="card-body d-flex justify-content-between">
+              <div>
+
+                <small class="text-muted">{{item.cars.year}}</small>
+
+                <p style="color: #2e054e;" class="my-bold-text ">{{item.cars.carbrand}} {{item.cars.carmodel}}</p>
+                <p class="text-secondary spn-col">{{item.cars.kmdriven|kmconvert}} km | {{item.cars.fuel}}</p>
+                <p style="color: #2e054e;" class="my-bold-text ">{{item.cars.price| currency:'INR'}}</p>
+              </div>
+              <!-- <div class="d-flex align-items-center ">
+              <button class="btncol btn px-5 py-2">Free Test Drive</button>
+            </div> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+
+    </div>
+    <div id="completed" class="tab-pane fade">
+
+      <div *ngFor="let item of testarr|paginate:{itemsPerPage:4,currentPage:p}" class="m-2">
+
+        <div class="card ">
+          <div class="d-flex flex-wrap w-100 m-auto p-1">
+
+            <div class="m-auto  p-2">
+
+              <img src="{{item.cars.images.leftside}}" class="card-img-top text-center " alt="..."
+                style="width: 200px;">
+            </div>
+            <div class="card-body d-flex flex-wrap justify-content-between">
+              <div>
+
+                <small class="text-muted">{{item.cars.year}}</small>
+
+                <p style="color: #2e054e;" class="my-bold-text ">{{item.cars.carbrand}} {{item.cars.carmodel}} </p>
+                <p class="text-secondary spn-col">{{item.cars.kmdriven|kmconvert}} km | {{item.cars.fuel}} | Booked<span
+                    class="text-secondary"> on {{dateformat(item.cars.date)}}</span></p>
+                <p style="color: #2e054e;" class="my-bold-text ">{{item.cars.price| currency:'INR'}}</p>
+                <p style="color: #2e054e;" class="text-secondary">{{item.cars.location}}</p>
+              </div>
+              <!-- <div class="d-flex align-items-center">
+              <button class="btncol btn px-5 py-2">Free Test Drive</button>
+            </div> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="container">
+
+  <div *ngIf="testarr === undefined || testarr.length == 0" class="text-center w-25 m-auto ">
+    
+    <div  >
+      
+      <img src="https://img.icons8.com/?size=512&id=p1yIKD1Sjsp1&format=png" class="w-75 m-auto  " alt="error">
+    </div>
+    <p class="fs-5 mt-5">Nothing to Show</p>
+  </div>
+</div>

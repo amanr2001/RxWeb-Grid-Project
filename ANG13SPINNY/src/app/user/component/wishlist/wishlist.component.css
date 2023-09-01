@@ -1,0 +1,202 @@
+/* #checkRadio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #adb5bd;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0;
+  cursor: pointer;
+} */
+
+/* Change the checkbox when checked */
+#checkRadio:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+  
+  /* Add the dot to the checked checkbox */
+  #checkRadio:checked::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 4px;
+  
+  }
+  
+  
+  .scrolling-box {
+    height: 180px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #888888 #f8f9fa;
+  }
+  .scrolling-box::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrolling-box::-webkit-scrollbar-thumb {
+    background-color: #888888;
+  }
+  
+  .scrolling-box::-webkit-scrollbar-track {
+    background-color: #f8f9fa;
+  }
+  
+  
+  .decorative-line {
+    position: relative;
+    height: 1px;
+    background-color: #888888;
+    margin: 20px 0;
+  
+  }
+  
+  .scroll-box {
+    height: 100% ;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #888888 #f8f9fa;
+  }
+  .scroll-box::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scroll-box::-webkit-scrollbar-thumb {
+    background-color: #888888;
+  }
+  
+  .scroll-box::-webkit-scrollbar-track {
+    background-color: #f8f9fa;
+  }
+  
+  @media (max-width:2560px){
+    .flag2{
+      display: none!important;
+    }
+  }
+  
+  
+  @media (max-width: 800px) {
+    /* .carousel-inner .carousel-item > div {
+      display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+      display: block;
+    } */
+    .flag1{
+      display: none!important;
+  
+    }
+    .flag2{
+      display: block!important;
+    }
+  }
+  
+  /* .carousel-inner .carousel-item.active,
+  .carousel-inner .carousel-item-start,
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {
+    display: flex;
+  } */
+  
+  /* display 4 */
+  /* @media (min-width: 790px) {
+    .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next,
+  .carousel-item-next:not(.carousel-item-start)
+  {
+      transform: translateX(50%) !important;
+    }
+  
+  .carousel-inner .carousel-item-left.active, .carousel-item-prev:not(.carousel-item-end),
+  .active.carousel-item-start, .carousel-item-prev:not(.carousel-item-end)
+  {
+      transform: translateX(-25%) !important;
+  }
+  
+  .carousel-item-next.carousel-item-start {
+    transform: translateX(0) !important;
+  }
+  
+  .carousel-inner .carousel-item-prev,
+  .carousel-item-prev:not(.carousel-item-end)
+  {
+      transform: translateX(-25%) !important;
+    }
+  } */
+  
+  @media (max-width:420px){
+    .carddisplay{
+      width: auto!important;
+      height: auto!important;
+    }
+  
+  }
+  
+  /* .carousel-inner .carousel-item-right,
+  .carousel-inner .carousel-item-left {
+    transform: translateX(0) !important;
+  } */
+  
+  .img-fluid{
+    width:95%;
+  }
+  
+  .txt-col{
+    color: #2e054e;
+    padding: 0!important;
+    margin: 0!important;
+    font-size: 15px;
+  }
+  
+  .card {
+    transition: box-shadow 0.5s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  .spn-col{
+    color: #2e054e;
+    font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+      padding:  10px;
+      font-weight:600;
+  }
+  .container{
+    overflow: hidden;
+  
+  }
+  .maincontent{
+    overflow-y: auto;
+    /* overflow: hidden; */
+    height: 100vh;
+  }
+  ::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  
+  .sidebar{
+    overflow-y: auto;
+    /* overflow: hidden; */
+    height: 100vh;
+  }
+  

@@ -1,0 +1,188 @@
+<!-- <div class="col-xl-12 col-md-6">
+    <div class="d-flex justify-content-between m-2">
+
+        <select class="form-select w-25 mb-2 flag1" aria-label="Default select example" (change)="filter($event)">
+            <option selected value="0">Filter</option>
+            <option>Accepted</option>
+            <option>OnHold</option>
+            <option>Denied</option>
+        </select>
+        <select class="form-select w-25 mb-2 flag1" aria-label="Default select example" (change)="sort($event)">
+            <option selected value="0">Sort BY</option>
+            <option value="1">Sort by Status</option>
+            <option value="2">Price -Low To High</option>
+            <option value="3">Price -High To Low</option>
+        </select>
+    </div>
+    <div class="card">
+
+        <div class="table-responsive">
+            <table class="table">
+                <caption></caption>
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-truncate">Username</th>
+
+                        <th class="text-truncate">Email</th>
+                        <th class="text-truncate">Carbrand</th>
+                        <th class="text-truncate">Carmodel</th>
+                        <th class="text-truncate">Car Type</th>
+                        <th class="text-truncate">Asked Price</th>
+                        <th class="text-truncate">selling Price</th>
+                        <th class="text-truncate">Status</th>
+                        <th class="text-truncate">Approve</th>
+                        <th class="text-truncate">Deny</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of (cardata|async)??[]|paginate:{itemsPerPage:10,currentPage:p}">
+                        <td>
+                            <div class="d-flex align-items-center">
+
+                                <div>
+                                    <h6 class="mb-0 text-truncate">{{item.user.username}}</h6>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-truncate">{{item.user.useremail}}</td>
+                        <td class="text-truncate">{{item.carbrand}}</td>
+                        <td class="text-truncate">{{item.carmodel}}</td>
+                        <td class="text-truncate">{{item.cartype}}</td>
+                        <td class="text-truncate">{{item.price}}</td>
+                        <td class="text-truncate">{{item.sellerprice}}</td>
+                        <td class="text-truncate"><em class="mdi mdi-laptop mdi-24px text-danger me-1"></em>
+                            {{item.approval.name}}</td>
+                        <td><button class="btn btn-success" [ngClass]="{'dis':item.approval.name=='Accepted'}"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                (click)="approvalid(item.carid)">Approve Request</button></td>
+                        <td><button class="btn btn-danger" (click)="cancelid(item.carid)" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal2">Deny Request</button></td>
+                   
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form [formGroup]="editform">
+                                            <label for=""> Selling price</label>
+                                            <input type="text" class="form-control" formControlName="sellerprice">
+
+                                            <div *ngIf="sellerP && sellerP.invalid && sellerP.touched">
+                                                <div *ngIf="sellerP.errors?.['required']">
+                                                    <p class="text-danger">Price is Required</p>
+                                                </div>
+                                            </div>
+                                            <label for="">Outlet</label>
+                                            <select class="form-select" formControlName="outlet">
+
+                                                <option *ngFor="let items of outlets;let i = index" value="{{i+1}}">
+                                                    {{items}}</option>
+                                            </select>
+                                            <div *ngIf="outl && outl.invalid && outl.touched">
+                                                <div *ngIf="outl.errors?.['required']">
+                                                    <p class="text-danger">Location is Necessary</p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                            (click)="approval()">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5>Are you Sure You want to Deny The Request?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">NO</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                            (click)="cancelrequest()">YES</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{cardata|async}} -->
+
+
+
+<div class="">
+    <input class="form-control m-2" (input)="search(data.value)" #data type="search" placeholder="Search" aria-label="Search">
+   
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        
+        <li   *ngFor="let item of dropTypeList" >{{item}} <span ><input type="checkbox" [checked]="arr.includes(item)" (change)="onc($event)" [value]="item"></span></li>
+      </ul>
+    </div>
+  
+    <div class="table-responsive  ">
+      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper  pb-0 dt-bootstrap4">
+        <div class="table-responsive ">
+          <div class="dataTables_wrapper pb-0 dt-bootstrap4">
+            <!-- <div id="grid"></div> -->
+            <rx-grid (change)="onClick()"  [design]="gridConfig"></rx-grid>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal"  #myModal tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <form [formGroup]="editform">
+                <label for=""> Selling price</label>
+                <input type="text" class="form-control" formControlName="sellerprice">
+
+               
+                <label for="">Outlet</label>
+                <select class="form-select" formControlName="outlet">
+
+                    <option *ngFor="let items of outlets;let i = index" value="{{i+1}}">
+                        {{items}}</option>
+                </select>
+             
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal" (click)="close()">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                (click)="approval()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
