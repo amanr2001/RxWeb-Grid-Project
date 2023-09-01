@@ -154,6 +154,8 @@ export class SellapprovalComponent implements OnInit {
         console.log(data);
         alert("Car accepted")
         this.close()
+        this.staticData();
+
         
       })
    }
@@ -210,6 +212,7 @@ export class SellapprovalComponent implements OnInit {
     this.http.put<any>("https://localhost:7011/api/Admin/Denyreq/"+data.carid,data).subscribe(d=>{
       console.log(d);
       alert("Car has been denied")
+      this.staticData()
       
     })
   }
@@ -328,8 +331,8 @@ export class SellapprovalComponent implements OnInit {
 
       this.degreeTypeList = data.result
       // this.dropTypeList=data.result.carid
-      console.log(this.degreeTypeList);
-    console.log(Object.keys(this.degreeTypeList[0]));
+    //   console.log(this.degreeTypeList);
+    // console.log(Object.keys(this.degreeTypeList[0]));
     this.dropTypeList=Object.keys(this.degreeTypeList[0])
 
       this.d.total = data.len

@@ -138,19 +138,24 @@
 <div class="">
     <input class="form-control m-2" (input)="search(data.value)" #data type="search" placeholder="Search" aria-label="Search">
    
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        
-        <li   *ngFor="let item of dropTypeList" >{{item}} <span ><input type="checkbox" [checked]="arr.includes(item)" (change)="onc($event)" [value]="item"></span></li>
-      </ul>
-    </div>
+    <div class="dropdown ">
+        <button class="btn btn-primary  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Drop List
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let item of dropTypeList">
+            <label class="dropdown-item">
+              <input type="checkbox" [checked]="arr.includes(item)" (change)="onc($event)" [value]="item">
+              {{ item }}
+            </label>
+          </li>
+        </ul>
+      </div>
+      
   
-    <div class="table-responsive  ">
+    <div class=" ">
       <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper  pb-0 dt-bootstrap4">
-        <div class="table-responsive ">
+        <div class=" ">
           <div class="dataTables_wrapper pb-0 dt-bootstrap4">
             <!-- <div id="grid"></div> -->
             <rx-grid (change)="onClick()"  [design]="gridConfig"></rx-grid>

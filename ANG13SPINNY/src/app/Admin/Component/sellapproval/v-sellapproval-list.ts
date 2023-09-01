@@ -27,7 +27,7 @@ export class vDegreeLookupBase {
     // button!: string;
 
     @gridColumn({
-      visible: true, allowSorting: false, columnIndex: 2, name: "carmodel", headerCellClass: 'text-center'.split(' '),headerKey: 'carmodel', headerTitle: 'carmodel'
+      visible: true, allowSorting: true, columnIndex: 2, name: "carmodel", headerCellClass: 'text-center'.split(' '),headerKey: 'carmodel', headerTitle: 'carmodel'
     })
     carmodel!:string;
     @gridColumn({
@@ -67,7 +67,7 @@ export class vDegreeLookupBase {
                   childrens: [
                     {
                       button: {
-                          class: 'btn text-success fs-6'.split(' '),
+                          class: 'btn text-light btn-success fs-6'.split(' '),
                           event: {
                               click: "onClick",
                             },

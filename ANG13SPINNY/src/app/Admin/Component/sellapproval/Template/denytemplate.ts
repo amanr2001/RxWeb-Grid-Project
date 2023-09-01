@@ -11,7 +11,7 @@ export const ACTION_GRID_TEMPLATE_FLOPPY: TemplateConfig = {
             childrens: [
               {
                 button: {
-                    class: 'btn text-success fs-6'.split(' '),
+                    class: 'btn text-light btn-danger fs-6'.split(' '),
                     event: {
                         click: "onDeny",
                       },
