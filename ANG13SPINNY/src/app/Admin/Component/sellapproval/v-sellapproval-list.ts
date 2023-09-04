@@ -44,7 +44,7 @@ export class vDegreeLookupBase {
     year!:string;
 
     @gridColumn({
-      visible:true,allowSorting:false,columnIndex:6,name:"approval", headerCellClass: 'text-center'.split(' '), headerTitle: 'Status',
+      visible:true,allowSorting:false,columnIndex:6,name:"approval", headerCellClass: 'text-center'.split(' '), headerTitle: 'Status',headerKey: 'approval'
     
     })
     approval!:string;
@@ -56,6 +56,7 @@ export class vDegreeLookupBase {
         visible: true,
         columnIndex: 7,
         // allowSorting: true,
+        headerKey: 'Approve',
         headerTitle: 'Approve',
         headerCellClass: 'text-center'.split(' '),
         template: {
@@ -92,7 +93,7 @@ export class vDegreeLookupBase {
       button!: HTMLButtonElement;
 
       @gridColumn({
-        visible:true,allowSorting:false,columnIndex:8,name:"Deny", headerCellClass: 'text-center'.split(' '), headerTitle: 'Deny',configuredTemplate:{templateName:"denytemp"}
+        visible:true,allowSorting:false,columnIndex:8,name:"Deny",headerKey: 'Deny' ,headerCellClass: 'text-center'.split(' '), headerTitle: 'Deny',configuredTemplate:{templateName:"denytemp"}
       })
       deny!:HTMLButtonElement;
     

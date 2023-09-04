@@ -17,8 +17,9 @@ export class UserHomePageComponent implements OnInit{
 
   ManageHomeForm !:FormGroup;
   tabData:any;
-  tData:any;
+  tData:any
   gridConfig!: AppGrid;
+  flag:boolean=false;
 
   constructor(private demo: MainservService,private serv: StoreServiceService, private fb: FormBuilder, private http: HttpClient){
     this.ManageHomeForm=this.fb.group({
@@ -39,16 +40,26 @@ export class UserHomePageComponent implements OnInit{
     this.gridConfig = new AppGrid(this.tabData, vDegreeLookupBase, {
       // actions: {}
     });
-    this.gridConfig.storeProcedure={nextPage:1,length:this.tabData.length,onPageChanging:this.tData}
+    this.gridConfig.storeProcedure={nextPage:1,length:this.tabData.length,onPageChanging:this.tdata}
+  }
+
+  tdata= (nextPage: number) =>{
+    console.log(nextPage);
+    this.gridConfig.storeProcedure.nextPage=nextPage
+    this.initializeGrid()
   }
   initializeGrid() {
-    // if (this.gridConfig) {
+    if (this.flag) {
         // Destroy or clean up existing instance if needed
-        this.gridConfig.storeProcedure.nextPage=1
-        this.gridConfig.storeProcedure.length=this.tabData.length
+        // this.gridConfig.storeProcedure.length=this.tabData.length
         this.gridConfig.updateSource([]);
         this.gridConfig.updateSource(this.tabData);
-    // }
+        
+      }
+      else if(!this.flag){
+        this.bindGrid()
+        this.flag=true
+      }
     // this.gridConfig = new AppGrid(this.tabData, vDegreeLookupBase);
 }
 
@@ -58,8 +69,8 @@ export class UserHomePageComponent implements OnInit{
         this.tData=res
         this.tabData=this.tData.map((d:any)=>d.data)
         console.log(this.tData.map((d:any)=>d.data));
-        this.bindGrid()
-      
+        this.initializeGrid();
+        
       }
     })
   }

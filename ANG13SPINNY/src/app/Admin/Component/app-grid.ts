@@ -8,8 +8,10 @@ export class AppGrid extends GridDesigner {
     this.allowSorting = true;
     this.isDivBase = true;
     this.startNodeName = "div";
+    this.designClass.tableClass = "table-responsive table".split(' ');
 
-    this.designClass.tableClass = 'div-table'.split(' ');
+
+    // this.designClass.tableClass = 'div-table'.split(' ');
     this.designClass.cellClass = ['sorting'];
     this.designClass.headerClass = 'div-thead'.split(' ');
     this.designClass.headerRowClass = 'div-tr'.split(' ');
@@ -32,7 +34,7 @@ export class AppGrid extends GridDesigner {
     this.footerDesignClass.paginatorClass.anchorClass = 'page-link'.split(' ');
     this.footerDesignClass.dropDownTemplateClass.labelClass = 'd-flex align-items-center font-14'.split(' ');
 
-    // this.maxPerPage = 10;
+    this.maxPerPage = 10; 
     this.pagingSource = [5, 10, 15, 25, 20];
 }
 

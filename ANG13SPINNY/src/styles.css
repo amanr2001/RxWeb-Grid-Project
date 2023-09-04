@@ -224,13 +224,19 @@ You can add global styles to this file, and also import other style files
     border: 5px solid red; */
     display: flex;
     justify-content: start;  
-    margin-left: 12px;
+  
+     margin: auto;
     color: #1ab394!important;
     margin-top: 5px;
   }
+
+  .pagination>ul>li>a {
+    background-color: rgb(35, 165, 104)!important;
+    /* color: red!important; */
+  }
   .selectList{
     margin-left: 12px;
-
+    width: max-content;
   }
   
   .chosen-container-single .chosen-single abbr:hover {
@@ -560,7 +566,7 @@ You can add global styles to this file, and also import other style files
 /* rx grid */
 
 .div-tbody .div-tr:nth-child(odd) {
-  background-color: #f5f5f5;
+  background-color: #e7e7e7;
 
 }
 
@@ -573,27 +579,34 @@ You can add global styles to this file, and also import other style files
 
 .div-table {
   display: table;
-  width: auto!important;
-  margin: 2px 12px;
+  width: auto; /* Use a specific width or remove 'auto' if you want it to expand to its container */
+  margin: 20px auto; /* Center the table horizontally with 20px top and bottom margin */
   border-collapse: collapse; /* Optional: collapse table borders */
-  margin-bottom: 20px; /* Optional: add some margin to the table */
   background-color: #f0f0f0; /* Optional: set a background color */
   border: 1px solid #ccc; /* Optional: add a border */
+  padding: 10px; /* Optional: add padding to the table cells */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+  border-radius: 5px; /* Optional: round the corners */
+  /* overflow: auto; */
 }
 
 
 .div-thead {
   display: table-header-group;
-  min-width: 100%;
-
+  /* min-width: 100%; */
+  
 }
 
 .div-tr {
   display: flex;
   /* flex-wrap: wrap; */
-  
+width: max-content;  
 }
-
+body{
+  min-width: 100%;
+  margin: 0;
+  overflow-x: hidden;  
+}
 .div-th,
 .div-td {
   padding: 15px 15px;
@@ -604,7 +617,7 @@ You can add global styles to this file, and also import other style files
   display: flex;
 
   align-items: center;
-  width: 180px; /* Change this to your desired width */
+  width:215px; /* Change this to your desired width */
 
   /* Add background color */
 
@@ -630,8 +643,7 @@ You can add global styles to this file, and also import other style files
   font-size: 16px;
   border-right: 1px solid #75b7cf;
   font-weight: normal;
-  display: -webkit-box;
-  display: -ms-flexbox;
+
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;

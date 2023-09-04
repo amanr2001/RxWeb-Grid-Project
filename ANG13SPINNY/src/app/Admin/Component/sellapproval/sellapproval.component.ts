@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild,Renderer2  } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { sellcar } from '../../stores/models/sellcarmodel';
 import { carapproval, carreqlength, filterdatabyapproved, sortcarbypricehigh, sortcarbypricelow, sortcarbystatus } from '../../stores/sellrequeststore/store.selector';
@@ -28,22 +28,22 @@ export class SellapprovalComponent implements OnInit {
   // id!: number;
   // p: any
   // constructor(private store: Store<Array<sellcar>>, private serv: StoreServiceService, private fb: FormBuilder, private http: HttpClient) {
-    // this.editform = this.fb.group({
-    //   sellerprice: ['', Validators.required],
-    //   outlet: ['', Validators.required]
-    // })
+  // this.editform = this.fb.group({
+  //   sellerprice: ['', Validators.required],
+  //   outlet: ['', Validators.required]
+  // })
   // }
   // ngOnInit(): void {
   //   this.cardata = this.store.select(carapproval)
-    // this.http.get(this.serv.baseurl + '/Admin/outlets').subscribe({
-    //   next: (resp: any) => {
-    //     this.outlets = resp
-    //   },
-    //   error: (err: any) => {
-    //     console.log(err);
+  // this.http.get(this.serv.baseurl + '/Admin/outlets').subscribe({
+  //   next: (resp: any) => {
+  //     this.outlets = resp
+  //   },
+  //   error: (err: any) => {
+  //     console.log(err);
 
-    //   }
-    // })
+  //   }
+  // })
   // }
 
   // get sellerP(){
@@ -106,10 +106,10 @@ export class SellapprovalComponent implements OnInit {
   title = 'RxGridStatic';
   gridConfig!: AppGrid;
   d: pagination = {} as pagination;
-  flag:boolean=false
-  degreeTypeList: any=[];
-  dropTypeList: any=[];
-   data = {
+  flag: boolean = false
+  degreeTypeList: any = [];
+  dropTypeList: any = [];
+  data = {
     "pagenum": this.d.pageindexnum,
     "pagesize": this.d.pagesize,
     "val": "",
@@ -125,8 +125,21 @@ export class SellapprovalComponent implements OnInit {
     })
     this.d.pagesize = 10
     this.d.pageindexnum = 1
-    
+
     this.staticData();
+  }
+  customStringify(obj: any) {
+    const seen = new WeakSet();
+
+    return JSON.stringify(obj, (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return; // Avoid circular references
+        }
+        seen.add(value);
+      }
+      return value;
+    });
   }
   ngOnInit() {
     // this.bindGrid()
@@ -143,30 +156,30 @@ export class SellapprovalComponent implements OnInit {
 
       }
     })
-   }
-   binddropgrid(){
-   
-   }
+  }
+  binddropgrid() {
 
-   approval(){
+  }
+
+  approval() {
     let data = this.editform.value
-      this.http.put<any>("https://localhost:7011/api/Admin/"+this.approvalid,data).subscribe(data=>{
-        console.log(data);
-        alert("Car accepted")
-        this.close()
-        this.staticData();
+    this.http.put<any>("https://localhost:7011/api/Admin/" + this.approvalid, data).subscribe(data => {
+      console.log(data);
+      alert("Car accepted")
+      this.close()
+      this.staticData();
 
-        
-      })
-   }
 
-   close(){
+    })
+  }
+
+  close() {
     const modalElement = this.modal.nativeElement;
     if (modalElement) {
       modalElement.classList.remove('show');
       modalElement.style.display = 'none';
     }
-   }
+  }
 
   onClick() {
     this.d.pagesize = this.gridConfig.maxPerPage
@@ -176,23 +189,23 @@ export class SellapprovalComponent implements OnInit {
   }
 
 
-  approvalid!:number;
+  approvalid!: number;
   handleRowClick(rowDat: any) {
     // alert(`Row clicked! Data: ${JSON.stringify(rowDat)}`);
 
     console.log(rowDat.carid);
-    this.approvalid=rowDat.carid
+    this.approvalid = rowDat.carid
     const modalElement = this.modal.nativeElement;
-  if (modalElement) {
-    modalElement.classList.add('show');
-    modalElement.style.display = 'block';
-  }   
-      
-    
+    if (modalElement) {
+      modalElement.classList.add('show');
+      modalElement.style.display = 'block';
+    }
+
+
   }
   // bindGrid() {
   //   this.gridConfig = new AppGrid(this.degreeTypeList, vDegreeLookupBase, {
-    
+
   //   });
 
   // }
@@ -201,46 +214,63 @@ export class SellapprovalComponent implements OnInit {
     this.d.pageindexnum = nextPage
 
     // console.log(this.degreeTypeList);
-    
+
     this.staticData()
     this.initializeGrid()
 
   };
 
-  deny(data:any){
+  deny(data: any) {
     // alert(data.carid)
-    this.http.put<any>("https://localhost:7011/api/Admin/Denyreq/"+data.carid,data).subscribe(d=>{
+    this.http.put<any>("https://localhost:7011/api/Admin/Denyreq/" + data.carid, data).subscribe(d => {
       console.log(d);
       alert("Car has been denied")
       this.staticData()
-      
+
     })
   }
 
-  arr:any=[]
-  onc(event:any){
-    console.log(event.target.value);
-    
-    var x = this.gridConfig.gridColumns.find((x:any)=>x.headerKey==event.target.value)
-    console.log(this.gridConfig.gridColumns);
-    if(x){
-      x.visible=event.target.checked;
-      console.log(x);
-      if(event.target.checked){
-        // this.arr.push(x?.name);
-        this.arr=(this.gridConfig.gridColumns.map(x=>x.name))
+  arr: any = []
+  columndata: any = []
+  mainarr:any=[]
+  onc(event: any) {
 
+    var x = this.gridConfig.gridColumns.find((x: any) => x.headerKey == event.target.value)
+    console.log(this.gridConfig.gridColumns.find((x: any) => x.headerKey == event.target.value));
+
+    if (x) {
+    
+      if (event.target.checked) {
+        
+        x.visible = false;
+        this.columndata = JSON.parse(localStorage.getItem("D")??"")
+
+        this.arr = (this.gridConfig.gridColumns.map(x => x.name))
+        this.gridConfig.gridColumns=this.columndata
       }
-      else{
-        let i = this.arr.findIndex((x:any)=>x===event.target.value)
-        if(i!==-1){
-          this.arr.splice(i,1)
+      else {
+        let i = this.arr.findIndex((x: any) => x === event.target.value)
+        if (i !== -1) {
+          this.arr.splice(i, 1)
+          this.columndata=this.gridConfig.gridColumns.filter((x:any)=>x.headerKey!=event.target.value)
+          const data=this.mainarr.find((x:any)=>x.headerKey==event.target.value)
+          this.gridConfig.gridColumns.push(data)
         }
       }
 
     }
-   
-     this.staticData()
+
+    this.staticData()
+    this.apply()
+  }
+
+  apply() {
+    localStorage.setItem("D", this.customStringify(this.columndata))
+    console.log("hello");
+    console.log(this.columndata);
+    
+    
+    this.initializeGrid()
   }
 
 
@@ -250,93 +280,117 @@ export class SellapprovalComponent implements OnInit {
 
       // this.gridConfig.storeProcedure.nextPage=1
       // this.gridConfig.storeProcedure.length=this.degreeTypeList.length
+      
+      // this.gridConfig.destroy()      
+      // this.columndata = localStorage.getItem("D")
+
+      //   this.gridConfig.gridColumns=JSON.parse(this.columndata)
+      // console.log(this.gridConfig.gridColumns);
+      this.columndata = JSON.parse(localStorage.getItem("D")??"")
+      // if(this.columndata.length){
+        console.log(this.gridConfig.gridColumns);
+        
+        console.log(this.columndata.length);
+        
+        this.gridConfig.gridColumns=this.columndata
+        console.log(JSON.parse(this.columndata));
+        this.arr = this.columndata.map((x:any)=>x.name)
+        
+      // }
       this.gridConfig.reDesign()
       this.gridConfig.updateSource([]);
       this.gridConfig.updateSource(this.degreeTypeList);
-      // this.gridConfig.destroy()
-      
-      
 
     }
-    else if(!this.flag){
+    else if (!this.flag) {
 
-    this.gridConfig = new AppGrid(this.degreeTypeList, vDegreeLookupBase, {
-      actions:{
+      this.gridConfig = new AppGrid(this.degreeTypeList, vDegreeLookupBase, {
+        actions: {
 
-        onClick: this.handleRowClick.bind(this),
-        onDeny:this.deny.bind(this)
+          onClick: this.handleRowClick.bind(this),
+          onDeny: this.deny.bind(this)
+        }
+        
+      });
+      // this.mainarr=this.gridConfig.gridColumns
+
+      this.gridConfig.maxPerPage = (this.d.pagesize ?? 0 > this.d.total!! ? this.d.pagesize : this.d.total) ?? 0
+
+      this.gridConfig.storeProcedure = { nextPage: 1, length: this.d.total ?? 10, onPageChanging: this.handlePageChanging, onPageSorting: this.sortpage }
+      this.flag = true
+      this.columndata = localStorage.getItem("D")
+      if(this.columndata.length){
+        console.log(this.gridConfig.gridColumns);
+        
+        console.log(this.columndata.length);
+        
+        this.gridConfig.gridColumns=JSON.parse(this.columndata)
+        console.log(JSON.parse(this.columndata));
+        this.arr = this.columndata.map((x:any)=>x.name)
+        
       }
-    });
-    
-    this.gridConfig.maxPerPage = (this.d.pagesize ?? 0 > this.d.total!! ? this.d.pagesize : this.d.total) ?? 0
-    
-    this.gridConfig.storeProcedure = { nextPage: 1, length: this.d.total ?? 10, onPageChanging: this.handlePageChanging, onPageSorting: this.sortpage }
-    this.flag=true
-    
-    console.log(this.gridConfig.gridColumns.map(x=>x.name));
-    this.arr=(this.gridConfig.gridColumns.map(x=>x.name))
 
     }
-    
+
   }
 
 
 
 
-  sortpage=(columnName: string, order: boolean, currentPage: number) =>{
-    
-    
-    
+  sortpage = (columnName: string, order: boolean, currentPage: number) => {
+
+
+
     // if (columnName === "carbrand") {
     //   console.log("car");
 
     //   this.degreeTypeList.sort((a: any, b: any) => a.carbrand.localeCompare(b.carbrand));      
-      
+
     // }
     // if(columnName==="carmodel"){
     //   this.degreeTypeList.sort((a: any, b: any) => a.carmodel.localeCompare(b.carmodel));
-      
+
     // }
     console.log(columnName);
     console.log(order);
 
-    
-    this.data.sortby=columnName;
-    this.data.orderby=order;
-    console.log(this.data);
-    
-    this.staticData()
-    
-  }
-  
-  
-  search(data:any){
-    console.log(data);
-    this.data.val=data;
-    this.staticData()
-    
-    
-  }
-  staticData() {
-   
- 
-      this.data.pagenum=this.d.pageindexnum,
-      this.data.pagesize= this.d.pagesize,
-    console.log(this.data.pagesize);
-    
-    
 
-    this.http.post(`https://localhost:7011/api/Admin`,this.data).subscribe((data: any) => {
+    this.data.sortby = columnName;
+    this.data.orderby = order;
+    console.log(this.data);
+
+    this.staticData()
+
+  }
+
+  search(data: any) {
+    console.log(data);
+    this.data.val = data;
+    this.staticData()
+
+
+  }
+  
+  staticData() {
+
+
+    this.data.pagenum = this.d.pageindexnum,
+      this.data.pagesize = this.d.pagesize,
+      console.log(this.data.pagesize);
+
+
+
+    this.http.post(`https://localhost:7011/api/Admin`, this.data).subscribe((data: any) => {
       // console.log(data);
 
       this.degreeTypeList = data.result
       // this.dropTypeList=data.result.carid
-    //   console.log(this.degreeTypeList);
-    // console.log(Object.keys(this.degreeTypeList[0]));
-    this.dropTypeList=Object.keys(this.degreeTypeList[0])
+      //   console.log(this.degreeTypeList);
+      // console.log(Object.keys(this.degreeTypeList[0]));
+      this.dropTypeList = Object.keys(this.degreeTypeList[0])
 
       this.d.total = data.len
-      
+
       this.initializeGrid()
       this.binddropgrid()
     })

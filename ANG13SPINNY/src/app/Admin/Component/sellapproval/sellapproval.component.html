@@ -136,10 +136,10 @@
 
 
 <div class="">
-    <input class="form-control m-2" (input)="search(data.value)" #data type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control my-2" (input)="search(data.value)" #data type="search" placeholder="Search" aria-label="Search">
    
     <div class="dropdown ">
-        <button class="btn btn-primary  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-custom  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Drop List
         </button>
         <ul class="dropdown-menu">
@@ -149,16 +149,17 @@
               {{ item }}
             </label>
           </li>
+          <button class="btn btn-outline-success " (click)="apply()">apply</button>
         </ul>
       </div>
       
   
     <div class=" ">
-      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper  pb-0 dt-bootstrap4">
+      <div id="" class="">
         <div class=" ">
-          <div class="dataTables_wrapper pb-0 dt-bootstrap4">
+          <div class="">
             <!-- <div id="grid"></div> -->
-            <rx-grid (change)="onClick()"  [design]="gridConfig"></rx-grid>
+            <rx-grid class="table-responsive table" (change)="onClick()"  [design]="gridConfig"></rx-grid>
           </div>
         </div>
       </div>
