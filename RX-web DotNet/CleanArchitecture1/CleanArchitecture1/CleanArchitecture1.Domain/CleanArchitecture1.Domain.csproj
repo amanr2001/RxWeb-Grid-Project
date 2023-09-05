@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture1.BoundedContext\CleanArchitecture1.BoundedContext.csproj" />
+    <ProjectReference Include="..\CleanArchitecture1.UnitOfWork\CleanArchitecture1.UnitOfWork.csproj" />
+    <ProjectReference Include="..\CleanArchitecture1.Models\CleanArchitecture1.Models.csproj" />
+    <ProjectReference Include="..\CleanArchitecture1.Infrastructure\CleanArchitecture1.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

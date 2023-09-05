@@ -12,7 +12,7 @@ import { vDegreeLookupBase } from './v-sellapproval-list';
 import { pagination } from '../../stores/models/paginationmodel';
 import { GridCustomTemplate } from '@rxweb/grid';
 import { GRID_CUSTOM_TEMPLATES } from './GridCustomTemplate';
-import { log } from 'console';
+import { debug, log } from 'console';
 
 @Component({
   selector: 'app-sellapproval',
@@ -146,7 +146,7 @@ export class SellapprovalComponent implements OnInit {
     // this.binddropgrid()
 
     GridCustomTemplate.register(GRID_CUSTOM_TEMPLATES);
-
+    this.mainarr=this.gridConfig.gridColumns
     this.http.get(this.serv.baseurl + '/Admin/outlets').subscribe({
       next: (resp: any) => {
         this.outlets = resp
@@ -235,32 +235,42 @@ export class SellapprovalComponent implements OnInit {
   mainarr:any=[]
   onc(event: any) {
 
-    var x = this.gridConfig.gridColumns.find((x: any) => x.headerKey == event.target.value)
-    console.log(this.gridConfig.gridColumns.find((x: any) => x.headerKey == event.target.value));
-
-    if (x) {
+    // var x:any = this.gridConfig.gridColumns.find((x: any) => x.headerKey == event.target.value)
+    // console.log(this.gridConfig.gridColumns.find((x: any) => x.headerKey == event.target.value));
+    this.arr = (this.gridConfig.gridColumns.map(x => x.name))
+  
+    this.columndata = this.gridConfig.gridColumns
+    
     
       if (event.target.checked) {
         
-        x.visible = false;
-        this.columndata = JSON.parse(localStorage.getItem("D")??"")
-
-        this.arr = (this.gridConfig.gridColumns.map(x => x.name))
-        this.gridConfig.gridColumns=this.columndata
+        // x.visible = false;
+        // this.gridConfig.gridColumns=this.columndata
+        console.log(this.mainarr);
+       
+        const data=this.mainarr.find((x:any)=>x.headerKey==event.target.value)
+      
+          
+          this.gridConfig.gridColumns=[...this.gridConfig.gridColumns,data]
+          console.log(this.gridConfig.gridColumns);
+          
+          this.columndata = this.gridConfig.gridColumns
+          console.log(this.columndata);
+          
+          
+       
       }
       else {
         let i = this.arr.findIndex((x: any) => x === event.target.value)
         if (i !== -1) {
-          this.arr.splice(i, 1)
-          this.columndata=this.gridConfig.gridColumns.filter((x:any)=>x.headerKey!=event.target.value)
-          const data=this.mainarr.find((x:any)=>x.headerKey==event.target.value)
-          this.gridConfig.gridColumns.push(data)
-        }
-      }
 
+          this.arr.splice(i, 1)
+          this.columndata.splice(i,1)
+        }
+      
     }
 
-    this.staticData()
+    // this.staticData()
     this.apply()
   }
 
@@ -286,15 +296,14 @@ export class SellapprovalComponent implements OnInit {
 
       //   this.gridConfig.gridColumns=JSON.parse(this.columndata)
       // console.log(this.gridConfig.gridColumns);
+      this.arr = (this.gridConfig.gridColumns.map(x => x.name))
+
       this.columndata = JSON.parse(localStorage.getItem("D")??"")
-      // if(this.columndata.length){
-        console.log(this.gridConfig.gridColumns);
-        
-        console.log(this.columndata.length);
+ 
         
         this.gridConfig.gridColumns=this.columndata
-        console.log(JSON.parse(this.columndata));
-        this.arr = this.columndata.map((x:any)=>x.name)
+        
+        
         
       // }
       this.gridConfig.reDesign()
@@ -312,12 +321,14 @@ export class SellapprovalComponent implements OnInit {
         }
         
       });
-      // this.mainarr=this.gridConfig.gridColumns
+      this.mainarr=this.gridConfig.gridColumns
 
       this.gridConfig.maxPerPage = (this.d.pagesize ?? 0 > this.d.total!! ? this.d.pagesize : this.d.total) ?? 0
 
       this.gridConfig.storeProcedure = { nextPage: 1, length: this.d.total ?? 10, onPageChanging: this.handlePageChanging, onPageSorting: this.sortpage }
       this.flag = true
+      this.arr = (this.gridConfig.gridColumns.map(x => x.name))
+
       this.columndata = localStorage.getItem("D")
       if(this.columndata.length){
         console.log(this.gridConfig.gridColumns);
@@ -326,7 +337,7 @@ export class SellapprovalComponent implements OnInit {
         
         this.gridConfig.gridColumns=JSON.parse(this.columndata)
         console.log(JSON.parse(this.columndata));
-        this.arr = this.columndata.map((x:any)=>x.name)
+        // this.arr = this.columndata.map((x:any)=>x.name)
         
       }
 
