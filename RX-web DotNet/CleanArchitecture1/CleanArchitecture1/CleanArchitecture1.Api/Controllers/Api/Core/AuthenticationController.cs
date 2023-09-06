@@ -28,8 +28,7 @@ namespace CleanArchitecture1.Api.Controllers
         }
 
         [HttpGet("hello")]
-        [AllowAnonymous]
-        [AllowRequest(MaxRequestCountPerIp = 100)]
+ 
 
         public async Task<IActionResult> Get()
         {
@@ -46,11 +45,11 @@ namespace CleanArchitecture1.Api.Controllers
         public async Task<IActionResult> Post(AuthenticationModel authentication)
         {
             var user = await LoginUow.Repository<vUser>().SingleOrDefaultAsync(t => t.UserName == authentication.UserName && !t.LoginBlocked);
-            if (user != null && PasswordHash.VerifySignature(authentication.Password, user.Password, user.Salt))
-            {
-                var token = await ApplicationTokenProvider.GetTokenAsync(user);
-                return Ok("h");
-            }
+                //if (user != null )
+                //{
+                //    var token = await ApplicationTokenProvider.GetTokenAsync(user);
+                //    return Ok("h");
+                //}
            
                 return Ok("hello");
         }
