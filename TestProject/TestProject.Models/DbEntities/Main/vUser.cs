@@ -8,7 +8,6 @@ using TestProject.BoundedContext.SqlContext;
 namespace TestProject.Models.Main
 {
     [Table("vUsers",Schema="dbo")]
-    [KeyLessEntity]
     public partial class vUser
     {
 		#region UserId Annotations

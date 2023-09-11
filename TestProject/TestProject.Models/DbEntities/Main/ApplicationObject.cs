@@ -44,10 +44,10 @@ namespace TestProject.Models.Main
 
         public int StatusId { get; set; }
 
-		#region ApplicationObjectType Annotations
+        #region ApplicationObjectType Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(ApplicationObjectTypeId),}, nameof(TestProject.Models.Main.ApplicationObjectType.ApplicationObjects))]
-		#endregion ApplicationObjectType Annotations
+        [ForeignKey(nameof(ApplicationObject.ApplicationObjectId))]
+        #endregion ApplicationObjectType Annotations
 
         public virtual ApplicationObjectType ApplicationObjectType { get; set; }
 

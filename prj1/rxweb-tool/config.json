@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "api": "prj1.Api",
+    "model": "prj1.Models",
+    "context": "prj1.BoundedContext",
+    "domain": "prj1.Domain",
+	"unitOfWork": "prj1.UnitOfWork",
+    "infrastructure": "prj1.Infrastructure",
+    "azureFunctionHttp":"",
+    "portal":"",
+    "azureFunctionBackground":""
+  },
+  "path": {
+    "dbConnection": {
+      "main": "Database.ConnectionString.Main"
+    },
+    "folder": {
+      "model": "DbEntities",
+      "context": "",
+	  "enums": "",
+	  "localizeValidationMessage": "wwwroot"
+    }
+  },
+  "annotations": {
+    "rxweb": false
+  },
+  "config": {
+    "generateEnums": false,
+    "commanTableSchema": "dbo",
+    "validationMessageLocalizationId": "15"
+  }
+}

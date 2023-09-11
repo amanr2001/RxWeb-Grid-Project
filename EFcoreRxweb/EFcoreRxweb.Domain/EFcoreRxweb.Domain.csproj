@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\EFcoreRxweb.BoundedContext\EFcoreRxweb.BoundedContext.csproj" />
+    <ProjectReference Include="..\EFcoreRxweb.UnitOfWork\EFcoreRxweb.UnitOfWork.csproj" />
+    <ProjectReference Include="..\EFcoreRxweb.Models\EFcoreRxweb.Models.csproj" />
+    <ProjectReference Include="..\EFcoreRxweb.Infrastructure\EFcoreRxweb.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

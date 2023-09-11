@@ -57,17 +57,17 @@ namespace TestProject.Models.Main
 
         public int PermissionPriority { get; set; }
 
-		#region ApplicationModule Annotations
+        #region ApplicationModule Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(ApplicationModuleId),}, nameof(TestProject.Models.Main.ApplicationModule.RolePermissions))]
-		#endregion ApplicationModule Annotations
+        [ForeignKey(nameof(RolePermission.ApplicationModuleId))]
+        #endregion ApplicationModule Annotations
 
         public virtual ApplicationModule ApplicationModule { get; set; }
 
-		#region Role Annotations
+        #region Role Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(RoleId),}, nameof(TestProject.Models.Main.Role.RolePermissions))]
-		#endregion Role Annotations
+        [ForeignKey(nameof(RolePermission.RoleId))]
+        #endregion Role Annotations
 
         public virtual Role Role { get; set; }
 

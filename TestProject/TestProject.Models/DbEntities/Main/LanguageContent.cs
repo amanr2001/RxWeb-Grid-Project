@@ -46,10 +46,10 @@ namespace TestProject.Models.Main
 
         public string Fr { get; set; }
 
-		#region LanguageContentKey Annotations
+        #region LanguageContentKey Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(LanguageContentKeyId),}, nameof(TestProject.Models.Main.LanguageContentKey.LanguageContents))]
-		#endregion LanguageContentKey Annotations
+        [ForeignKey(nameof(LanguageContent.LanguageContentKeyId))]
+        #endregion LanguageContentKey Annotations
 
         public virtual LanguageContentKey LanguageContentKey { get; set; }
 

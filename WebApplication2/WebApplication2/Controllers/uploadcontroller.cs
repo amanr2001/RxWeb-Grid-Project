@@ -24,7 +24,7 @@ namespace WebApplication2.Controllers
             }
 
             var destkey = $"Images/{file.FileName.ToLower() + DateTime.Now.ToString()}";
-            using (var client = new AmazonS3Client("AKIAV63YZ5PWSR5A7THT", "kOz2Cq8rwfEYHH7mArPQioCSxIjm39mJ4N+07yjU", Amazon.RegionEndpoint.APSouth1))
+            using (var client = new AmazonS3Client("", "", Amazon.RegionEndpoint.APSouth1))
             {
                 using (var transferUtility = new TransferUtility(client))
                 {

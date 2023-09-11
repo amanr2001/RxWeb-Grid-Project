@@ -37,17 +37,17 @@ namespace TestProject.Models.Main
 
         public int RoleId { get; set; }
 
-		#region Role Annotations
+        #region Role Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(RoleId),}, nameof(TestProject.Models.Main.Role.UserRoles))]
-		#endregion Role Annotations
+        [ForeignKey(nameof(UserRole.RoleId))]
+        #endregion Role Annotations
 
         public virtual Role Role { get; set; }
 
-		#region User Annotations
+        #region User Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(UserId),}, nameof(TestProject.Models.Main.User.UserRoles))]
-		#endregion User Annotations
+        [ForeignKey(nameof(UserRole.UserId))]
+        #endregion User Annotations
 
         public virtual User User { get; set; }
 

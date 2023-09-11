@@ -58,10 +58,10 @@ namespace TestProject.Models.Main
 
         public System.DateTimeOffset CreatedDateTime { get; set; }
 
-		#region User Annotations
+        #region User Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(UserId),}, nameof(TestProject.Models.Main.User.ApplicationUserTokens))]
-		#endregion User Annotations
+        [ForeignKey(nameof(ApplicationUserToken.UserId))]
+        #endregion User Annotations
 
         public virtual User User { get; set; }
 

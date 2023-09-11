@@ -31,10 +31,10 @@ namespace TestProject.Models.Main
 
         public Nullable<int> ParentApplicationModuleId { get; set; }
 
-		#region ModuleMaster Annotations
+        #region ModuleMaster Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(ModuleMasterId),}, nameof(TestProject.Models.Main.ModuleMaster.ApplicationModules))]
-		#endregion ModuleMaster Annotations
+        [ForeignKey(nameof(ApplicationModule.ModuleMasterId))]
+        #endregion ModuleMaster Annotations
 
         public virtual ModuleMaster ModuleMaster { get; set; }
 

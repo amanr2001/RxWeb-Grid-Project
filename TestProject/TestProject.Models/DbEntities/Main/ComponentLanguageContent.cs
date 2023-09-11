@@ -43,17 +43,17 @@ namespace TestProject.Models.Main
 
         public string Fr { get; set; }
 
-		#region ComponentKey Annotations
+        #region ComponentKey Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(ComponentKeyId),}, nameof(TestProject.Models.Main.LanguageContentKey.ComponentLanguageContents))]
-		#endregion ComponentKey Annotations
+        [ForeignKey(nameof(ComponentLanguageContent.ComponentKeyId))]
+        #endregion ComponentKey Annotations
 
         public virtual LanguageContentKey ComponentKey { get; set; }
 
-		#region LanguageContent Annotations
+        #region LanguageContent Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(LanguageContentId),}, nameof(TestProject.Models.Main.LanguageContent.ComponentLanguageContents))]
-		#endregion LanguageContent Annotations
+        [ForeignKey(nameof(ComponentLanguageContent.LanguageContentId))]
+        #endregion LanguageContent Annotations
 
         public virtual LanguageContent LanguageContent { get; set; }
 

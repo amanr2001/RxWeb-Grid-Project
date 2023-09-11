@@ -12,8 +12,8 @@ namespace WebApplication2.Service
     public class Razorpayservice
     {
 
-        private readonly string keyId = "rzp_test_A5ZSz6riT6Yh0l";
-        private readonly string keySecret = "OH1axejjA5HZ2jYYnJhP2XT4";
+        private readonly string keyId = "";
+        private readonly string keySecret = "";
         private RazorpayClient client;
 
         public Razorpayservice()
